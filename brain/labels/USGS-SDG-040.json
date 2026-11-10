@@ -1,0 +1,76 @@
+{
+  "case_id": "USGS-SDG-040",
+  "trl": 6,
+  "trl_reason": "A HEC-RAS model of the actual 37.2-mi Meramec reach was calibrated against the December 2015 flood (RMSE 0.47 ft against 26 high-water marks) and then used to produce the 660-map library for the real study area, including Mississippi backwater scenarios. That makes it a working model in a relevant environment. The report gives no evidence that the maps were used for real decisions, were qualified against requirements, or were in routine use over a stated period.",
+  "label_origin": "ai-silver: AI-generated development label following .scratch/trl-tracer/labelling-brief.md; not an expert label",
+  "criteria": {
+    "APCTT-C01": {
+      "status": "met",
+      "pages": [{"document_id": "D001", "page": 13}, {"document_id": "D001", "page": 14}],
+      "quote": "The HEC–RAS model is a one-dimensional step-backwater hydraulic model that simulates water-surface profiles with unsteady-state flow computation options.",
+      "note": "The report states that the method rests on one-dimensional step-backwater hydraulics (HEC-RAS, Brunner 2016) and on Manning's roughness taken from cited studies (Barnes, Arcement and Schneider, Coon)."
+    },
+    "APCTT-C02": {
+      "status": "met",
+      "pages": [{"document_id": "D001", "page": 11}, {"document_id": "D001", "page": 18}],
+      "quote": "One way to address these informational gaps is to produce a library of flood-inundation maps that are referenced to the stages recorded at the USGS streamgage.",
+      "note": "The report describes the application: a map library tied to streamgage stages and NWS forecasts that responders use to judge flood depth and extent, closed roads and evacuations."
+    },
+    "APCTT-C03": {
+      "status": "met",
+      "pages": [{"document_id": "D001", "page": 15}, {"document_id": "D001", "page": 16}],
+      "quote": "The root mean square error computed from the differences between surveyed high-water marks in the simulation reach for the December 2015 flood and simulated peak elevations was 0.47 ft.",
+      "note": "Analytical results (the RMSE and the Fig. 2 comparison) show the critical function: the model simulates water levels along the reach accurately."
+    },
+    "APCTT-C04": {
+      "status": "met",
+      "pages": [{"document_id": "D001", "page": 15}],
+      "quote": "As part of the calibration process, the initial n values were varied by flow and adjusted until the differences between simulated and observed water-surface elevations at the Meramec River at Valley Park, Mo., streamgage and at high-water marks were minimized.",
+      "note": "Read by analogy: the first (precalibration) model was tested against calibration data (the stage-discharge rating and high-water marks) and refined, with the results reported. There is no separate controlled or test-data stage."
+    },
+    "APCTT-C05": {
+      "status": "met",
+      "pages": [{"document_id": "D001", "page": 15}, {"document_id": "D001", "page": 16}, {"document_id": "D001", "page": 14}],
+      "quote": "The model was calibrated by adjusting Manning’s n values and changing the ineffective flow areas until the results of the hydraulic computations closely agreed with the observed water-surface elevations for given flows.",
+      "note": "The model was calibrated and checked against real observations of the reach's flood of record (December 2015): 26 high-water marks, the Eureka rating and Valley Park stages, with an RMSE of 0.47 ft. The levee result also matched what was observed (p14)."
+    },
+    "APCTT-C06": {
+      "status": "met",
+      "pages": [{"document_id": "D001", "page": 15}, {"document_id": "D001", "page": 17}],
+      "quote": "The calibrated hydraulic model was used to generate a total of 411 water-surface profiles (table 4).",
+      "note": "The calibrated working model was applied to the actual study area. It produced profiles for 8 Mississippi backwater conditions, and these were combined with the lidar DEM to make the inundation map library for the four reaches."
+    },
+    "APCTT-C07": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "The maps are said to be available online and linked to NWS forecasts, but the report only says they 'will provide' information. It never says emergency managers used them for real decisions."
+    },
+    "APCTT-C08": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "The report mentions only USGS standardized procedures and publication. It gives no stated requirements and no formal qualification or approval testing against them."
+    },
+    "APCTT-C09": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "The report records no routine operational use over a stated period."
+    },
+    "APCTT-C10": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "The report gives an RMSE of 0.47 ft and says the model is 'capable of simulating accurate water levels', but it states no acceptance criterion or requirement to compare these against."
+    },
+    "APCTT-C11": {
+      "status": "met",
+      "pages": [{"document_id": "D001", "page": 15}, {"document_id": "D001", "page": 14}, {"document_id": "D001", "page": 13}],
+      "quote": "The upstream boundary condition for the hydraulic-model calibration was a discharge hydrograph corresponding to the flows observed for the calibration event, the flood of December 28, 2015–January 3, 2016, herein referred to as the “December 2015 flood.”",
+      "note": "Test conditions are defined: the calibration event, the upstream and downstream boundary conditions, the Mississippi backwater scenarios and the flow regime. The tested article is also defined: HEC-RAS 5.0.3 in unsteady mode, 131 cross sections, a lidar DEM with stated accuracy, and the structures and levee as modelled. It is the same model that produced the maps."
+    },
+    "APCTT-C12": {
+      "status": "met",
+      "pages": [{"document_id": "D001", "page": 15}, {"document_id": "D001", "page": 18}],
+      "quote": "The stage data at the Meramec River at Valley Park streamgage, about midway along the reach, were used to calibrate the model performance.",
+      "note": "All the evidence concerns the Meramec Eureka-to-Arnold model and map library itself, including its links to USGS real-time stages and NWS AHPS forecasts (p18), and not some other element."
+    }
+  }
+}

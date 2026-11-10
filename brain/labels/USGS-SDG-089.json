@@ -1,0 +1,158 @@
+{
+  "case_id": "USGS-SDG-089",
+  "trl": 9,
+  "trl_reason": "The storm-tide monitoring and data-delivery system was deployed operationally along the Virginia-to-Maine coast during Hurricane Sandy (Oct 26-29 deployment, Nov-Dec HWM survey), following established USGS protocols, with data relayed live to the Storm-Tide Mapper and used by FEMA to direct the federal response. No formal qualification against requirements is reported.",
+  "label_origin": "ai-silver: AI-generated development label following .scratch/trl-tracer/labelling-brief.md; not an expert label",
+  "criteria": {
+    "APCTT-C01": {
+      "status": "met",
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 7
+        },
+        {
+          "document_id": "D001",
+          "page": 5
+        }
+      ],
+      "quote": "Data were collected and processed following protocols established by McGee and others (2006) and expanded upon by McCallum and others (2012), which included correcting water pressure for changes in barometric pressure and salinity.",
+      "note": "States the measurement principle (pressure-sensor water level corrected for barometric pressure and salinity) citing prior USGS protocols; p5 defines storm tide citing NOAA."
+    },
+    "APCTT-C02": {
+      "status": "met",
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 5
+        }
+      ],
+      "quote": "FEMA mission assigned the USGS to deploy storm-tide monitoring instruments to characterize the height, extent, and timing of storm tides better than could be accomplished by existing USGS or NOAA observational fixed-place networks.",
+      "note": "Describes the application (FEMA storm-tide monitoring) and how the network of sensors, HWM surveys and Storm-Tide Mapper delivery work in it."
+    },
+    "APCTT-C03": {
+      "status": "met",
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 9
+        },
+        {
+          "document_id": "D001",
+          "page": 12
+        }
+      ],
+      "quote": "The reference points and HWMs were surveyed to a vertical accuracy of 0.26 foot at the 95-percent confidence level and within 10 feet horizontally, except for Union, Middlesex, and Monmouth Counties in New Jersey.",
+      "note": "Analytical results show the critical characteristic (datum-referenced elevations) with quantified vertical accuracy checked against NGS benchmarks (table 2); recorded peak storm tides are in table 3."
+    },
+    "APCTT-C04": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "No laboratory or controlled/test-data testing of the sensors or data system is reported; the report covers only the field deployment."
+    },
+    "APCTT-C05": {
+      "status": "met",
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 7
+        },
+        {
+          "document_id": "D001",
+          "page": 9
+        }
+      ],
+      "quote": "Of the 162 sensors, 7 waterlevel sensors were lost or the structure they were attached to was damaged during the storm, and 5 sensors (4 storm-tide and 1 wave-height) did not record storm tide either due to a lack of water-level rise or because the sensor was installed too high above the water.",
+      "note": "Sensors were tested in the real storm environment with reported outcomes and QC checks against redundant sensors, permanent gages and HWMs; p9 gives survey accuracy."
+    },
+    "APCTT-C06": {
+      "status": "met",
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 7
+        },
+        {
+          "document_id": "D001",
+          "page": 5
+        }
+      ],
+      "quote": "A total of 224 temporarily deployed sensors were used for Hurricane Sandy, 162 water-level and wave-height sensors were deployed at 147 locations (fig. 1).",
+      "note": "The full working network was demonstrated along the Virginia-to-Maine coast during Hurricane Sandy (exceeds the relevant-environment bar)."
+    },
+    "APCTT-C07": {
+      "status": "met",
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 5
+        },
+        {
+          "document_id": "D001",
+          "page": 10
+        }
+      ],
+      "quote": "During and after the storm, data from both efforts were collected and relayed immediately for display on the Storm-Tide Mapper, which allowed FEMA and other emergency management officials to examine the data and best direct federal response activities.",
+      "note": "The system ran in the actual operational environment and its data were used by FEMA and emergency managers for real response decisions."
+    },
+    "APCTT-C08": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "No formal qualification against stated system requirements is reported; accuracy is computed per FGDC standard but no acceptance criteria or qualification test are given."
+    },
+    "APCTT-C09": {
+      "status": "met",
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 5
+        },
+        {
+          "document_id": "D001",
+          "page": 7
+        }
+      ],
+      "quote": "In response, a total of 162 water-level and wave-height sensors were deployed at 147 locations during October 26–29 prior to landfall.",
+      "note": "Used in an actual emergency deployment under a FEMA mission assignment over a stated period (sensors Oct 26-29, HWM campaign Nov-Dec 2012), following established protocols and a prior Irene deployment."
+    },
+    "APCTT-C10": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "Accuracies and peak values are reported, but no stated requirements or acceptance criteria are compared with them and no met/not-met judgement is given."
+    },
+    "APCTT-C11": {
+      "status": "met",
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 7
+        },
+        {
+          "document_id": "D001",
+          "page": 9
+        }
+      ],
+      "quote": "An additional eight locations were rapid-deployment gages (RDG) instrumented with real-time telemetered sensors that recorded water-level elevations and meteorological data every 15 minutes during the hurricane and transmitted hourly to USGS Webpages (table 1; fig. 4).",
+      "note": "Describes the deployed configuration (sensor types, sampling intervals, telemetry, counts by state, installation) and the storm conditions; p9 covers the survey/datum setup."
+    },
+    "APCTT-C12": {
+      "status": "met",
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 5
+        },
+        {
+          "document_id": "D001",
+          "page": 7
+        },
+        {
+          "document_id": "D001",
+          "page": 9
+        }
+      ],
+      "quote": "Both efforts were undertaken as part of a coordinated federal emergency response as outlined by the Stafford Act under a directed mission assignment by the Federal Emergency Management Agency (FEMA).",
+      "note": "All evidence concerns the Sandy storm-tide sensor network, HWM campaign and Storm-Tide Mapper data delivery itself, in the stated Virginia-to-Maine environment."
+    }
+  }
+}

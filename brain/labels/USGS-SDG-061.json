@@ -1,0 +1,76 @@
+{
+  "case_id": "USGS-SDG-061",
+  "trl": 6,
+  "trl_reason": "The Rio Hondo prefire and postfire PRMS models were calibrated against observed streamflow in the burned North Fork Eagle Creek subwatershed (satisfactory against the Moriasi criteria) and then applied in that real study area with gage precipitation, matching observed prefire and postfire hydrographs. The report does not describe use by NMDHSEM or other users for real decisions, a qualified release or routine operation.",
+  "label_origin": "ai-silver: AI-generated development label following .scratch/trl-tracer/labelling-brief.md; not an expert label",
+  "criteria": {
+    "APCTT-C01": {
+      "status": "met",
+      "pages": [{"document_id": "D001", "page": 13}, {"document_id": "D001", "page": 14}],
+      "quote": "Wildfires alter landscapes by burning groundcover, understory vegetation, and canopies and by altering physical, chemical, and biological properties of soil (Doerr and Cerda, 2005; Doerr and others, 2009; Terranova and others, 2009).",
+      "note": "States the hydrologic principles of fire effects (reduced infiltration and ET, more runoff) with literature, and the process basis of PRMS (pages 13-14)."
+    },
+    "APCTT-C02": {
+      "status": "met",
+      "pages": [{"document_id": "D001", "page": 10}, {"document_id": "D001", "page": 14}, {"document_id": "D001", "page": 9}],
+      "quote": "This report describes the development, sensitivity analysis, calibration, and implementation of PRMS to simulate the prefire and postfire streamflow and surface hydrologic conditions of the fire-affected North Fork Eagle Creek subwatershed in the upper Rio Hondo Basin.",
+      "note": "Describes the application (simulating fire effects on streamflow for flood and emergency planning) and how the HRU-based prefire/postfire models are meant to work."
+    },
+    "APCTT-C03": {
+      "status": "met",
+      "pages": [{"document_id": "D001", "page": 23}, {"document_id": "D001", "page": 25}],
+      "quote": "Overall, the postfire model was considered to be satisfactory to good.",
+      "note": "Calibrated simulation results (table 5) show the model reproduces prefire and postfire streamflow, which is its critical function."
+    },
+    "APCTT-C04": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "No early version tested on controlled or synthetic test data is reported. The work goes from national FAST sensitivity results straight to calibration against real observed streamflow."
+    },
+    "APCTT-C05": {
+      "status": "met",
+      "pages": [{"document_id": "D001", "page": 23}, {"document_id": "D001", "page": 25}, {"document_id": "D001", "page": 21}],
+      "quote": "The calibrated model performance in simulating monthly prefire streamflow for the May through October period was assessed as satisfactory based on statistical measures of R2 (0.74) and NSE (0.62), on the basis of watershed-scale model evaluation criteria proposed by Moriasi and others (2015a).",
+      "note": "Prefire (2007-12) and postfire (2014-15) models calibrated against observed streamflow from the burned subwatershed, with statistics reported."
+    },
+    "APCTT-C06": {
+      "status": "met",
+      "pages": [{"document_id": "D001", "page": 27}, {"document_id": "D001", "page": 30}],
+      "quote": "Comparison of the distribution and magnitudes of prefire (2010) observed streamflow generally demonstrated a better match to prefire model results, and the postfire (2014) observed streamflow demonstrated a better match to postfire model results (fig. 7).",
+      "note": "The working calibrated models were applied in the real burned study area with Cloudcroft gage precipitation and compared with observed 2010 and 2014 hydrographs."
+    },
+    "APCTT-C07": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "No use of the models by NMDHSEM or other intended users for real flood or emergency decisions is reported."
+    },
+    "APCTT-C08": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "No formally qualified or approved model release tested against stated requirements is described. A data release is only cited."
+    },
+    "APCTT-C09": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "No routine operational use over a stated period is reported."
+    },
+    "APCTT-C10": {
+      "status": "met",
+      "pages": [{"document_id": "D001", "page": 23}, {"document_id": "D001", "page": 25}, {"document_id": "D001", "page": 27}],
+      "quote": "Although mean bias (0.35) was high and considered not satisfactory according to the criteria by Moriasi and others (2015a), slope of the observed versus simulated regression line was nearly 1:1 (1.07), which supports the conclusion of satisfactory performance.",
+      "note": "Compares R2, NSE, RSR and bias with the Moriasi (2007, 2015a) evaluation criteria and says which were met (satisfactory or good) and which were not (prefire bias)."
+    },
+    "APCTT-C11": {
+      "status": "met",
+      "pages": [{"document_id": "D001", "page": 22}, {"document_id": "D001", "page": 23}, {"document_id": "D001", "page": 21}],
+      "quote": "Calibration of PRMS was conducted only for the May through October period in this study for two reasons.",
+      "note": "Defines the test conditions (two HRUs, May-October only, calibration periods, Daymet versus Cloudcroft forcing, observed hydrograph built by subtraction) and the model configuration, with limits relative to snowmelt."
+    },
+    "APCTT-C12": {
+      "status": "met",
+      "pages": [{"document_id": "D001", "page": 23}, {"document_id": "D001", "page": 25}],
+      "quote": "The PRMS postfire model was run for the entire period of Daymet gridded meteorological data record (October 1, 2007, to December 31, 2015), and results from the postfire period (October 31, 2013, to December 31, 2015) were used for calibration.",
+      "note": "The evidence concerns the Rio Hondo prefire and postfire PRMS models themselves, not PRMS in general or the parent NMDHSEM early-warning effort."
+    }
+  }
+}
