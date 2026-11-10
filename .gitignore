@@ -1,0 +1,26 @@
+# Official kit: re-download from the Participation Kit folder instead of committing it
+apctt-participant-kit-*/
+
+# Environments
+.venv/
+apctt-env/
+__pycache__/
+*.pyc
+
+# Large downloads: catalogue models and public sample PDFs
+models/
+public_cases/
+*.pdf
+
+# Kit server state
+server_data/
+worker_tmp/
+
+# Build output (submission zips are made by tools/make_submission.py)
+*.zip
+
+# Local configs with machine paths
+*.local.json
+
+# macOS
+.DS_Store
