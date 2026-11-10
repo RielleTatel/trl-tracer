@@ -24,6 +24,7 @@ ADAPTER_DEFAULTS: dict[str, Any] = {
     "use_dense": True,  # bge-base-en-v1.5 dense retrieval
     "use_rerank": True,  # granite-embedding-reranker-english-r2
     "use_judge": True,  # deberta-v3-base-zeroshot-v2.0-c entailment
+    "use_llm": True,  # qwen3-0.6b second opinion (loaded lazily in assess)
 }
 
 
@@ -81,7 +82,7 @@ class AssessmentModule:
 
         started = time.monotonic()
         try:
-            evidence.collect(case, self.checklist, self.settings, self.models, has_time, record)
+            evidence.collect(case, self.checklist, self.settings, self.models, has_time, record, context.remaining_ms)
         except Exception:
             record["error"] = traceback.format_exc(limit=5)
             print(record["error"], file=sys.stderr)

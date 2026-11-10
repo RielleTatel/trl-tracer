@@ -276,3 +276,11 @@ def test_strong_level_below_the_prior_keeps_the_prior_when_a_higher_level_is_met
     assert trl_of(checklist, {5: 0.97, 6: 0.6}, settings) == 6
     assert trl_of(checklist, {5: 0.97, 6: 0.6}, {**settings, "trl_below_prior": "always"}) == 5
     assert trl_of(checklist, {5: 0.97}, {**settings, "trl_below_prior": "never"}) == 6
+
+
+def test_language_model_probability_confirms_borderline_criteria(checklist):
+    cid = level_id(checklist, 6)
+    settings = {"met_threshold": 0.85, "borderline_low": 0.6, "llm_yes": 0.7}
+    assert run(checklist, {cid: {"candidates": [cand(2, 0.7)], "llm_p": 0.9}}, settings)["criterion_status"][cid] == "met"
+    assert run(checklist, {cid: {"candidates": [cand(2, 0.7)], "llm_p": 0.6}}, settings)["criterion_status"][cid] == "insufficient evidence"
+    assert run(checklist, {cid: {"candidates": [cand(2, 0.3)], "llm_p": 0.99}}, settings)["criterion_status"][cid] == "insufficient evidence"

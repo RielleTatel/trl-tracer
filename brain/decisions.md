@@ -2,6 +2,23 @@
 
 Choices and why (thresholds, models, TRL rule). Newest first.
 
+## 2026-11-10 — Second opinion (ticket 12) and OCR fallback (ticket 13)
+
+- `qwen3-0.6b` yes/no read as P(yes) in one forward pass (float32: 2.7 s load, ~1-2 s per
+  question). With a plain prompt it said yes to everything (P about 0.99); a stricter instruction
+  and two worked examples (one yes, one no) fixed that. Probe on the 96 labelled criteria (AUC for
+  "the best passage supports the criterion"): granite rerank 0.60, deberta 0.62, qwen 0.66,
+  deberta and qwen combined 0.67.
+- Asked only for criteria in the borderline band [borderline_low, met_threshold). Real tuning
+  run `20261110-213853-tuning`: gates pass, slowest 62.6 s, peak 4.73 GB, ~8 questions and
+  17.5 s per case. Fast-cycle sweep on its cached answers: `borderline_low` 0.2, `llm_yes` 0.8 ->
+  B 0.474, dev 0.620 (best so far; A 0.750 unchanged), 20.6% of criteria met.
+- OCR (rapidocr, PP-OCRv4 models bundled in the base) only when at least half of a document's
+  pages have under 200 characters, at most 3 pages (~4.5 s each). Recovers text on a scanned test
+  document; words often run together. Never triggered on the public cases (all have text).
+- Process rule after a slip: never edit `my_submission/` while a slow run is in progress (each
+  case loads the package from disk); a mixed run was stopped and discarded before it finished a case.
+
 ## 2026-11-10 — Retrieval and TRL-rule improvements measured on the silver labels
 
 - 3(a) `candidates_k` 5 -> 8: gold page among candidates 58% -> 81%, in the top 3 44% -> 64%;

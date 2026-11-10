@@ -10,7 +10,7 @@ Case evidence record (plain JSON, may be partial or empty):
      "criteria": {"<criterion_id>": {
          "candidates": [{"document_id", "page", "text", "retrieval", "rerank", "entail",
                          "sentences"?: ["ranked sentence", ...]}],
-         "llm": "met" | "not met" | null}},
+         "llm": "met" | "not met" | null,  "llm_p": P(yes) from the language model | absent}},
      "skipped": {"ocr": bool, "llm": bool, ...},
      "scope": "out"?}
 """
@@ -25,6 +25,7 @@ from participant_module import quotes, trl
 DEFAULTS: dict[str, Any] = {
     "met_threshold": 0.85,  # best support score at or above this: met
     "borderline_low": 0.60,  # [borderline_low, met_threshold): met only if the language model says so
+    "llm_yes": 0.5,  # language-model P(yes) needed to confirm a borderline criterion
     "max_pages": 3,  # distinct pages cited per met criterion (only the first 3 are scored)
     "page_min_score": 0.60,  # extra pages must reach this score
     "span_min_chars": 30,
@@ -69,7 +70,8 @@ def _judge(cid: str, entry: Mapping[str, Any], pages: Mapping[str, list[str]], s
     where = f"document {usable[0]['document_id']}, page {usable[0]['page']}"
     if best >= s["met_threshold"]:
         judged_met = True
-    elif best >= s["borderline_low"] and entry.get("llm") == "met":
+    elif best >= s["borderline_low"] and (entry.get("llm") == "met" or (
+            isinstance(entry.get("llm_p"), (int, float)) and entry["llm_p"] >= s["llm_yes"])):
         judged_met = True
     else:
         if best >= s["borderline_low"]:

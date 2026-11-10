@@ -2,8 +2,8 @@
   "declaration_version": "apctt-declaration-example-v1",
   "team": "adzu",
   "package_id": "trl-tracer",
-  "package_version": "0.1.0",
-  "declared_package_sha256": "ce113e7507a8048138ea0888928769b42ff01592d57eeeb9076e50396c155f95",
+  "package_version": "1.0.0",
+  "declared_package_sha256": null,
   "team_training": "no_team_training",
   "training": null,
   "data_sources": [
@@ -11,21 +11,33 @@
       "source": "APCTT public sample cases (contracts/public-cases.json, USGS reports)",
       "version": "kit 0.5.0",
       "date": "2026-11-10",
-      "role": "development and checking of the module; tuning and hand-labelling in later versions",
+      "role": "development, tuning (70 cases) and checking (29 held-out cases); not training",
       "label_origin": "organizer's estimated TRL per report; not expert labels",
       "linked_project": "none",
       "license": "U.S. public domain (USGS); some figures third-party, see the manifest's licence_note"
+    },
+    {
+      "source": "Development labels for 8 public sample cases (criterion status, gold pages, quotations)",
+      "version": "v1",
+      "date": "2026-11-10",
+      "role": "development benchmark for tuning thresholds; not training",
+      "label_origin": "AI-generated (Claude) following the team's labelling brief, made blind to the organizer's estimate and cross-checked against it; not expert labels",
+      "linked_project": "none",
+      "license": "team's own work (MIT), derived from U.S. public domain reports"
     }
   ],
   "inference_assets": {
     "source_code": "participant_module/ (package hash in submission.json)",
     "weights": [],
-    "prompts_or_rules": [],
+    "prompts_or_rules": [
+      "assets/criteria_rules.json",
+      "participant_module/llm.py (yes/no prompt)"
+    ],
     "reference_assets": [],
     "dependency_declarations": [
       "the common base environment (base_id in submission.json)",
-      "catalogue models listed in submission.json models[] (none in this version)"
+      "catalogue models listed in submission.json models[]: bge-base-en-v1.5, granite-embedding-reranker-english-r2, deberta-v3-base-zeroshot-v2.0-c, qwen3-0.6b"
     ]
   },
-  "notes": "Always-abstain fallback version: no models, no rules, no training."
+  "notes": "No team training. Public catalogue models only, loaded offline from the model store. Settings tuned on the public sample cases."
 }
