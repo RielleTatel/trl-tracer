@@ -202,7 +202,7 @@ def test_no_level_met_gives_the_prior(checklist):
 
 
 def test_highest_strongly_met_level_inside_the_band(checklist):
-    assert trl_of(checklist, {5: 0.97}) == 5
+    assert trl_of(checklist, {5: 0.97}) == 5  # nothing at or above the prior is met
     assert trl_of(checklist, {4: 0.97, 5: 0.96, 7: 0.95}) == 7
     assert trl_of(checklist, {6: 0.97, 7: 0.93}) == 7
 
@@ -269,3 +269,10 @@ def test_ties_are_broken_by_page_order(checklist):
     cid = level_id(checklist, 6)
     items = run(checklist, {cid: {"candidates": [cand(6, 0.95), cand(2, 0.95)]}})["evidence_reference"][cid]
     assert [i["page"] for i in items] == [2, 6]
+
+
+def test_strong_level_below_the_prior_keeps_the_prior_when_a_higher_level_is_met(checklist):
+    settings = {"met_threshold": 0.5, "trl_strong": 0.85}
+    assert trl_of(checklist, {5: 0.97, 6: 0.6}, settings) == 6
+    assert trl_of(checklist, {5: 0.97, 6: 0.6}, {**settings, "trl_below_prior": "always"}) == 5
+    assert trl_of(checklist, {5: 0.97}, {**settings, "trl_below_prior": "never"}) == 6

@@ -4,8 +4,8 @@ Checklist text (APCTT-2026-CHECKLIST-v1): Relevant-environment validation (TRL 5
 
 ## Distilled (exported to assets/criteria_rules.json)
 - Hypotheses:
-  - {target} was tested under conditions representative of {environment} and the results are reported.
   - The model was calibrated or validated against observed field data and the results are reported.
+  - {target} was tested under conditions representative of {environment} and the results are reported.
 - Search phrases:
   - calibration
   - validation
@@ -17,6 +17,18 @@ Checklist text (APCTT-2026-CHECKLIST-v1): Relevant-environment validation (TRL 5
   - error statistics
   - representative conditions
   - test site
+  - was calibrated
+  - calibrated to
+  - agreed with the observed
+  - observed water-surface
+  - satisfactory
+  - R2
+  - NSE
+  - root mean square error
+  - standard deviation
+  - difference between
+  - not used in the calibration
+  - high-water marks
 - Trap cues:
   - will be
   - future work

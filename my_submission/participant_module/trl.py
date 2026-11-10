@@ -43,6 +43,13 @@ def predict(met_scores: Mapping[str, float], levels: Mapping[str, int], settings
         top = max(strong_levels)
         score = strong_levels[top]
         if low <= top <= high:
+            below = settings.get("trl_below_prior", "no_higher_met")
+            if top < prior and below != "always":
+                higher = [lvl for lvl in by_level if lvl >= prior]
+                if below == "never" or higher:
+                    return prior, (f"TRL {top} is strongly met ({score:.2f}) and higher levels are also met; "
+                                   f"the prior TRL {prior} is kept.") if higher else (
+                                   f"TRL {top} is strongly met ({score:.2f}); the prior TRL {prior} is kept.")
             return top, f"TRL {top} is the highest level criterion met with strong support ({score:.2f})."
         if top > high:
             if score >= extreme:

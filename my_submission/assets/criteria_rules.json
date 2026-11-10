@@ -24,7 +24,15 @@
         "literature",
         "conceptual model",
         "is based on",
-        "background"
+        "background",
+        "law",
+        "equation",
+        "physical",
+        "process",
+        "method",
+        "model that simulates",
+        "protocols",
+        "and others"
       ],
       "traps": [
         "References Cited",
@@ -108,8 +116,8 @@
     },
     "APCTT-C05": {
       "hypotheses": [
-        "{target} was tested under conditions representative of {environment} and the results are reported.",
-        "The model was calibrated or validated against observed field data and the results are reported."
+        "The model was calibrated or validated against observed field data and the results are reported.",
+        "{target} was tested under conditions representative of {environment} and the results are reported."
       ],
       "queries": [
         "calibration",
@@ -121,7 +129,19 @@
         "Nash-Sutcliffe",
         "error statistics",
         "representative conditions",
-        "test site"
+        "test site",
+        "was calibrated",
+        "calibrated to",
+        "agreed with the observed",
+        "observed water-surface",
+        "satisfactory",
+        "R2",
+        "NSE",
+        "root mean square error",
+        "standard deviation",
+        "difference between",
+        "not used in the calibration",
+        "high-water marks"
       ],
       "traps": [
         "will be",
@@ -135,8 +155,8 @@
     },
     "APCTT-C06": {
       "hypotheses": [
-        "A representative version of {target} was demonstrated in {environment}.",
-        "The model was applied to the study area and produced results for {application}."
+        "The model was applied to the study area and produced results for {application}.",
+        "A representative version of {target} was demonstrated in {environment}."
       ],
       "queries": [
         "demonstrated",
@@ -147,7 +167,15 @@
         "simulated",
         "application of the model",
         "field demonstration",
-        "results show"
+        "results show",
+        "was used to generate",
+        "were created",
+        "was applied",
+        "was tested for",
+        "were deployed",
+        "study reach",
+        "maps were",
+        "simulated for"
       ],
       "traps": [
         "hypothetical",

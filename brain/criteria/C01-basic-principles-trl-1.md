@@ -16,6 +16,14 @@ Checklist text (APCTT-2026-CHECKLIST-v1): Basic principles (TRL 1): the report s
   - conceptual model
   - is based on
   - background
+  - law
+  - equation
+  - physical
+  - process
+  - method
+  - model that simulates
+  - protocols
+  - and others
 - Trap cues:
   - References Cited
   - Contents

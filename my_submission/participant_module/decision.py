@@ -33,7 +33,8 @@ DEFAULTS: dict[str, Any] = {
     "trl_band": [5, 7],
     "trl_strong": 0.90,
     "trl_extreme": 0.95,
-    "trl_weak_moves": False,  # spec: only strongly met levels move the TRL; True clamps weak ones to the band
+    "trl_weak_moves": False,
+    "trl_below_prior": "no_higher_met",  # strong level below the prior: "always" | "no_higher_met" (only if no level >= prior is met) | "never"  # spec: only strongly met levels move the TRL; True clamps weak ones to the band
 }
 
 

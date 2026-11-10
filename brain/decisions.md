@@ -2,6 +2,20 @@
 
 Choices and why (thresholds, models, TRL rule). Newest first.
 
+## 2026-11-10 — Retrieval and TRL-rule improvements measured on the silver labels
+
+- 3(a) `candidates_k` 5 -> 8: gold page among candidates 58% -> 81%, in the top 3 44% -> 64%;
+  B 0.368 -> 0.391, A 0.764 -> 0.757, dev 0.578 -> 0.585. Kept.
+- 3(b) cards C01/C05/C06: plain model-style hypothesis first for C05 and C06 (only the first
+  hypothesis is used), search phrases from the gold evidence patterns. Top-3 gold pages 64% ->
+  72%, B 0.391 -> 0.428, but A fell to 0.550: 34 cases became TRL 5 because a strongly met C05
+  stopped the TRL below the prior.
+- TRL rule: new setting `trl_below_prior`; chosen "never" — a strongly met level inside the
+  band never pulls the TRL below the prior (the spec's "move down only when clearly
+  early-stage"; the separate early-stage rule still applies). A back to 0.750, dev 0.599 (best
+  so far). "no_higher_met" gave only 0.571 because most cases have no level at or above 6 met.
+- Caveat: B rests on 8 silver-labelled cases; the held-out set is scored before submission.
+
 ## 2026-11-10 — Label rules: strict C04, organizer's reading of released software
 
 - C04 is met only with a separate controlled or test-data stage; site calibration counts for

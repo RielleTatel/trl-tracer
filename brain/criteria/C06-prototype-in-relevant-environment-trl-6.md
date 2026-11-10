@@ -4,8 +4,8 @@ Checklist text (APCTT-2026-CHECKLIST-v1): Prototype in relevant environment (TRL
 
 ## Distilled (exported to assets/criteria_rules.json)
 - Hypotheses:
-  - A representative version of {target} was demonstrated in {environment}.
   - The model was applied to the study area and produced results for {application}.
+  - A representative version of {target} was demonstrated in {environment}.
 - Search phrases:
   - demonstrated
   - applied to
@@ -16,6 +16,14 @@ Checklist text (APCTT-2026-CHECKLIST-v1): Prototype in relevant environment (TRL
   - application of the model
   - field demonstration
   - results show
+  - was used to generate
+  - were created
+  - was applied
+  - was tested for
+  - were deployed
+  - study reach
+  - maps were
+  - simulated for
 - Trap cues:
   - hypothetical
   - will be
