@@ -1,0 +1,316 @@
+{
+  "version": "trl-tracer-rules-v1",
+  "global": {
+    "page_traps": [
+      "References Cited",
+      "Table of Contents",
+      "Acknowledgments",
+      "Conversion Factors",
+      "Abbreviations"
+    ]
+  },
+  "criteria": {
+    "APCTT-C01": {
+      "hypotheses": [
+        "The report explains the scientific or engineering principles that {target} is based on.",
+        "The report cites earlier studies or literature that describe the processes behind {target}."
+      ],
+      "queries": [
+        "governing equations",
+        "physical processes",
+        "principles",
+        "theory",
+        "previous studies",
+        "literature",
+        "conceptual model",
+        "is based on",
+        "background"
+      ],
+      "traps": [
+        "References Cited",
+        "Contents",
+        "Acknowledgments"
+      ]
+    },
+    "APCTT-C02": {
+      "hypotheses": [
+        "The report describes how {target} is intended to be used for {application}.",
+        "The report describes the purpose of {target} and how it is designed to work."
+      ],
+      "queries": [
+        "purpose and scope",
+        "objectives",
+        "approach",
+        "designed to",
+        "intended to",
+        "framework",
+        "application",
+        "decision support",
+        "is used to"
+      ],
+      "traps": [
+        "References Cited",
+        "Contents",
+        "Acknowledgments"
+      ]
+    },
+    "APCTT-C03": {
+      "hypotheses": [
+        "Analytical or laboratory results show that the main function of {target} works.",
+        "Initial tests or calculations show that the method used by {target} is feasible."
+      ],
+      "queries": [
+        "proof of concept",
+        "preliminary results",
+        "feasibility",
+        "initial test",
+        "sensitivity analysis",
+        "analytical solution",
+        "benchmark",
+        "test case",
+        "demonstrated that"
+      ],
+      "traps": [
+        "will be",
+        "future work",
+        "planned",
+        "proposed",
+        "References Cited",
+        "Contents",
+        "Acknowledgments"
+      ]
+    },
+    "APCTT-C04": {
+      "hypotheses": [
+        "An early version of {target} was tested in a laboratory or controlled setting and the results are reported.",
+        "Components of {target} were tested on test data and the test results are reported."
+      ],
+      "queries": [
+        "laboratory",
+        "bench test",
+        "controlled conditions",
+        "test data",
+        "synthetic data",
+        "verification",
+        "unit test",
+        "calibration data set",
+        "prototype"
+      ],
+      "traps": [
+        "will be",
+        "future work",
+        "planned",
+        "proposed",
+        "References Cited",
+        "Contents",
+        "Acknowledgments"
+      ]
+    },
+    "APCTT-C05": {
+      "hypotheses": [
+        "{target} was tested under conditions representative of {environment} and the results are reported.",
+        "The model was calibrated or validated against observed field data and the results are reported."
+      ],
+      "queries": [
+        "calibration",
+        "validation",
+        "observed data",
+        "field data",
+        "compared with measured",
+        "goodness of fit",
+        "Nash-Sutcliffe",
+        "error statistics",
+        "representative conditions",
+        "test site"
+      ],
+      "traps": [
+        "will be",
+        "future work",
+        "planned",
+        "proposed",
+        "References Cited",
+        "Contents",
+        "Acknowledgments"
+      ]
+    },
+    "APCTT-C06": {
+      "hypotheses": [
+        "A representative version of {target} was demonstrated in {environment}.",
+        "The model was applied to the study area and produced results for {application}."
+      ],
+      "queries": [
+        "demonstrated",
+        "applied to",
+        "pilot",
+        "case study",
+        "study area",
+        "simulated",
+        "application of the model",
+        "field demonstration",
+        "results show"
+      ],
+      "traps": [
+        "hypothetical",
+        "will be",
+        "future work",
+        "planned",
+        "proposed",
+        "References Cited",
+        "Contents",
+        "Acknowledgments"
+      ]
+    },
+    "APCTT-C07": {
+      "hypotheses": [
+        "A near-final version of {target} was demonstrated in actual operational use at {environment}.",
+        "{target} was used operationally by agencies or managers for {application}."
+      ],
+      "queries": [
+        "operational",
+        "real-time",
+        "in operation",
+        "used by",
+        "adopted by",
+        "deployed",
+        "decision makers",
+        "routinely",
+        "operational use",
+        "provided to"
+      ],
+      "traps": [
+        "could be used",
+        "potential use",
+        "may be used",
+        "can be used",
+        "will be",
+        "future work",
+        "planned",
+        "proposed",
+        "References Cited",
+        "Contents",
+        "Acknowledgments"
+      ]
+    },
+    "APCTT-C08": {
+      "hypotheses": [
+        "The final {target} was completed and tested against its requirements.",
+        "The finished {target} passed review, quality assurance or acceptance testing before release."
+      ],
+      "queries": [
+        "quality assurance",
+        "acceptance testing",
+        "requirements",
+        "approved",
+        "reviewed",
+        "released",
+        "certified",
+        "final version",
+        "official",
+        "documented and released"
+      ],
+      "traps": [
+        "draft",
+        "provisional",
+        "preliminary",
+        "References Cited",
+        "Contents",
+        "Acknowledgments"
+      ]
+    },
+    "APCTT-C09": {
+      "hypotheses": [
+        "{target} has been used successfully in actual operations over a stated period.",
+        "{target} has been in routine operational use for years."
+      ],
+      "queries": [
+        "in use since",
+        "operational since",
+        "years of operation",
+        "long-term",
+        "continuously operated",
+        "decades",
+        "routine use",
+        "has been used",
+        "record of"
+      ],
+      "traps": [
+        "will be",
+        "future work",
+        "planned",
+        "proposed",
+        "References Cited",
+        "Contents",
+        "Acknowledgments"
+      ]
+    },
+    "APCTT-C10": {
+      "hypotheses": [
+        "The report compares the measured performance of {target} with stated requirements or acceptance criteria.",
+        "The report states whether the results of {target} met the stated accuracy criteria."
+      ],
+      "queries": [
+        "met the criteria",
+        "acceptance criteria",
+        "within",
+        "accuracy",
+        "requirement",
+        "performance criteria",
+        "satisfactory",
+        "threshold",
+        "objective",
+        "less than"
+      ],
+      "traps": [
+        "References Cited",
+        "Contents",
+        "Acknowledgments"
+      ]
+    },
+    "APCTT-C11": {
+      "hypotheses": [
+        "The report describes the test conditions and the version of {target} that was tested.",
+        "The report describes the data, time period and site used to test {target}."
+      ],
+      "queries": [
+        "test conditions",
+        "data set",
+        "period of record",
+        "study site",
+        "model version",
+        "configuration",
+        "setup",
+        "input data",
+        "boundary conditions",
+        "time period"
+      ],
+      "traps": [
+        "References Cited",
+        "Contents",
+        "Acknowledgments"
+      ]
+    },
+    "APCTT-C12": {
+      "hypotheses": [
+        "The evidence in the report concerns {target} itself.",
+        "The report describes results produced by {target}, not only by the wider project."
+      ],
+      "queries": [
+        "{target}",
+        "this report",
+        "this study",
+        "the model",
+        "developed",
+        "presented in this report",
+        "described in this report",
+        "results of the"
+      ],
+      "traps": [
+        "the program",
+        "the project as a whole",
+        "References Cited",
+        "Contents",
+        "Acknowledgments"
+      ]
+    }
+  }
+}

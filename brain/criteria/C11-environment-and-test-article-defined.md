@@ -4,17 +4,29 @@ Checklist text (APCTT-2026-CHECKLIST-v1): Environment and test article defined: 
 
 ## Distilled (exported to assets/criteria_rules.json)
 - Hypotheses:
-  - (short sentence the entailment model can check; use {target} and {environment})
+  - The report describes the test conditions and the version of {target} that was tested.
+  - The report describes the data, time period and site used to test {target}.
 - Search phrases:
-  - (5-10 phrases)
+  - test conditions
+  - data set
+  - period of record
+  - study site
+  - model version
+  - configuration
+  - setup
+  - input data
+  - boundary conditions
+  - time period
 - Trap cues:
-  - (what looks like evidence but is not; e.g. a bare "reached TRL N")
+  - References Cited
+  - Contents
+  - Acknowledgments
 
 ## What it means
-(plain definition in our own words)
+The report describes the test conditions and the configuration or fidelity of the tested article relative to the intended application. (Draft v1: rewrite in your own words as you read reports.)
 
 ## Reading it for software, models and data products
-(the kit says hardware words are read by analogy: a representative version of the product, tested as the criterion says)
+The kit says hardware words are read by analogy: a representative version of the product, tested as the criterion says. Which version of the model or dataset was tested, on which data, period and site, and how that compares with the intended use.
 
 ## Positive examples
 - USGS-SDG-0xx p.N: "..." — why it counts

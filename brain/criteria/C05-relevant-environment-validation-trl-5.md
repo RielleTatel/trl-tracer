@@ -4,17 +4,33 @@ Checklist text (APCTT-2026-CHECKLIST-v1): Relevant-environment validation (TRL 5
 
 ## Distilled (exported to assets/criteria_rules.json)
 - Hypotheses:
-  - (short sentence the entailment model can check; use {target} and {environment})
+  - {target} was tested under conditions representative of {environment} and the results are reported.
+  - The model was calibrated or validated against observed field data and the results are reported.
 - Search phrases:
-  - (5-10 phrases)
+  - calibration
+  - validation
+  - observed data
+  - field data
+  - compared with measured
+  - goodness of fit
+  - Nash-Sutcliffe
+  - error statistics
+  - representative conditions
+  - test site
 - Trap cues:
-  - (what looks like evidence but is not; e.g. a bare "reached TRL N")
+  - will be
+  - future work
+  - planned
+  - proposed
+  - References Cited
+  - Contents
+  - Acknowledgments
 
 ## What it means
-(plain definition in our own words)
+The component or breadboard was tested in a simulated or relevant environment that represents the intended one, with reported results. (Draft v1: rewrite in your own words as you read reports.)
 
 ## Reading it for software, models and data products
-(the kit says hardware words are read by analogy: a representative version of the product, tested as the criterion says)
+The kit says hardware words are read by analogy: a representative version of the product, tested as the criterion says. Calibration or validation against real observations from conditions like the intended use (gages, field measurements), with fit statistics or error values.
 
 ## Positive examples
 - USGS-SDG-0xx p.N: "..." — why it counts

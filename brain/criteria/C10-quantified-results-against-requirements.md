@@ -4,17 +4,29 @@ Checklist text (APCTT-2026-CHECKLIST-v1): Quantified results against requirement
 
 ## Distilled (exported to assets/criteria_rules.json)
 - Hypotheses:
-  - (short sentence the entailment model can check; use {target} and {environment})
+  - The report compares the measured performance of {target} with stated requirements or acceptance criteria.
+  - The report states whether the results of {target} met the stated accuracy criteria.
 - Search phrases:
-  - (5-10 phrases)
+  - met the criteria
+  - acceptance criteria
+  - within
+  - accuracy
+  - requirement
+  - performance criteria
+  - satisfactory
+  - threshold
+  - objective
+  - less than
 - Trap cues:
-  - (what looks like evidence but is not; e.g. a bare "reached TRL N")
+  - References Cited
+  - Contents
+  - Acknowledgments
 
 ## What it means
-(plain definition in our own words)
+Measured performance is compared with stated requirements or acceptance criteria, and the report says whether they were met. (Draft v1: rewrite in your own words as you read reports.)
 
 ## Reading it for software, models and data products
-(the kit says hardware words are read by analogy: a representative version of the product, tested as the criterion says)
+The kit says hardware words are read by analogy: a representative version of the product, tested as the criterion says. Fit or error statistics compared with a stated target (for example 'simulated peaks within 0.5 ft of observed, meeting the calibration criterion').
 
 ## Positive examples
 - USGS-SDG-0xx p.N: "..." — why it counts

@@ -4,17 +4,33 @@ Checklist text (APCTT-2026-CHECKLIST-v1): Prototype in relevant environment (TRL
 
 ## Distilled (exported to assets/criteria_rules.json)
 - Hypotheses:
-  - (short sentence the entailment model can check; use {target} and {environment})
+  - A representative version of {target} was demonstrated in {environment}.
+  - The model was applied to the study area and produced results for {application}.
 - Search phrases:
-  - (5-10 phrases)
+  - demonstrated
+  - applied to
+  - pilot
+  - case study
+  - study area
+  - simulated
+  - application of the model
+  - field demonstration
+  - results show
 - Trap cues:
-  - (what looks like evidence but is not; e.g. a bare "reached TRL N")
+  - hypothetical
+  - will be
+  - future work
+  - planned
+  - proposed
+  - References Cited
+  - Contents
+  - Acknowledgments
 
 ## What it means
-(plain definition in our own words)
+A representative model or prototype of the system was demonstrated in a relevant environment (not yet the operational one). (Draft v1: rewrite in your own words as you read reports.)
 
 ## Reading it for software, models and data products
-(the kit says hardware words are read by analogy: a representative version of the product, tested as the criterion says)
+The kit says hardware words are read by analogy: a representative version of the product, tested as the criterion says. The full model, tool or dataset was applied to a real study area like the intended environment and produced the intended outputs (maps, estimates, simulations).
 
 ## Positive examples
 - USGS-SDG-0xx p.N: "..." — why it counts

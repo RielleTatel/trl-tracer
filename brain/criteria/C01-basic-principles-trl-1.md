@@ -4,17 +4,28 @@ Checklist text (APCTT-2026-CHECKLIST-v1): Basic principles (TRL 1): the report s
 
 ## Distilled (exported to assets/criteria_rules.json)
 - Hypotheses:
-  - (short sentence the entailment model can check; use {target} and {environment})
+  - The report explains the scientific or engineering principles that {target} is based on.
+  - The report cites earlier studies or literature that describe the processes behind {target}.
 - Search phrases:
-  - (5-10 phrases)
+  - governing equations
+  - physical processes
+  - principles
+  - theory
+  - previous studies
+  - literature
+  - conceptual model
+  - is based on
+  - background
 - Trap cues:
-  - (what looks like evidence but is not; e.g. a bare "reached TRL N")
+  - References Cited
+  - Contents
+  - Acknowledgments
 
 ## What it means
-(plain definition in our own words)
+The report says which science the technology rests on (processes, equations, theory) and points to observations or earlier studies that establish it. (Draft v1: rewrite in your own words as you read reports.)
 
 ## Reading it for software, models and data products
-(the kit says hardware words are read by analogy: a representative version of the product, tested as the criterion says)
+The kit says hardware words are read by analogy: a representative version of the product, tested as the criterion says. For a model or method: the hydrologic, physical or statistical principles it implements, with citations (for example 'streamflow is simulated with the Muskingum routing method (Cunge, 1969)').
 
 ## Positive examples
 - USGS-SDG-0xx p.N: "..." — why it counts
