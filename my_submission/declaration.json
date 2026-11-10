@@ -3,7 +3,7 @@
   "team": "adzu",
   "package_id": "trl-tracer",
   "package_version": "1.0.0",
-  "declared_package_sha256": null,
+  "declared_package_sha256": "57043ca7712fa838280b58d5230c48103ae6cf7b483ff30f540b1c6dc857a143",
   "team_training": "no_team_training",
   "training": null,
   "data_sources": [
@@ -21,9 +21,9 @@
       "version": "v1",
       "date": "2026-11-10",
       "role": "development benchmark for tuning thresholds; not training",
-      "label_origin": "AI-generated (Claude) following the team's labelling brief, made blind to the organizer's estimate and cross-checked against it; not expert labels",
+      "label_origin": "AI-generated (Claude) following the team's labelling brief, made blind to the organizer's estimate and cross-checked against it; not expert labels; the labels are the team's own work, derived from U.S. public domain reports",
       "linked_project": "none",
-      "license": "team's own work (MIT), derived from U.S. public domain reports"
+      "license": "MIT"
     }
   ],
   "inference_assets": {

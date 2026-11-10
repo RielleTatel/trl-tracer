@@ -2,6 +2,20 @@
 
 Choices and why (thresholds, models, TRL rule). Newest first.
 
+## 2026-11-10 — Submission 1 candidate: trl-tracer 1.0.0 (ticket 14)
+
+- Zip: `submissions/sub1-1.0.0/adzu_submission.zip` (not in git), 28 KB,
+  zip sha256 `30968f126e9a7955d182bb37bc47767884e950ddf917693f0cb3831bc0f4c18a`,
+  package sha256 `57043ca7712fa838280b58d5230c48103ae6cf7b483ff30f540b1c6dc857a143` (equals the kit
+  server's `verified_package_sha256`).
+- Intake check: `VALID_WITH_REVIEW`; the only review item is the public-domain licence of the
+  declared USGS public cases (same as the fallback, unavoidable). The labels' licence is `MIT`.
+- Kit server (dev profile): example + smoke cases USGS-SDG-012, -040, -061: `result_origin:
+  module`, completed, no output issues, 20-41 s. Slow module tests 8/8 pass.
+- Scores: tuning A 0.750, B 0.474 (8 silver-labelled cases), dev 0.620; held-out A 0.759 (equal to
+  the TRL-6 prior there), met share 22.1%. Gates: slowest 62.6 s (tuning), peak 4.73 GB, on the
+  development Mac; not measured on the event laptop.
+
 ## 2026-11-10 — Second opinion (ticket 12) and OCR fallback (ticket 13)
 
 - `qwen3-0.6b` yes/no read as P(yes) in one forward pass (float32: 2.7 s load, ~1-2 s per
