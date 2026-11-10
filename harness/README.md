@@ -18,6 +18,10 @@ python3 harness/compare.py --accept runs/<run>                # make a run the b
 python3 harness/score.py runs/<run>                           # re-score, e.g. after adding labels
 python3 harness/server_submit.py <request.json> ...           # through the real kit server
 python3 harness/split.py                                      # made once: brain/split.json
+python3 harness/replay.py [runs/<run>] --settings try.json    # fast cycle: decision step only, seconds
+python3 harness/sweep.py [runs/<run>] --grid grid.json        # try a grid of settings; proposes only
+python3 harness/label.py USGS-SDG-012                         # hand-label a case (resumable)
+python3 harness/export_rules.py [--check]                     # criterion cards -> assets/criteria_rules.json
 ```
 
 ## Where things go

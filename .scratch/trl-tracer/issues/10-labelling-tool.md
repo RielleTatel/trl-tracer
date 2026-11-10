@@ -1,4 +1,4 @@
-Status: ready-for-agent
+Status: resolved
 Owner: agent
 Blocked by: 07
 
@@ -8,7 +8,18 @@ Labelling tool: for a case, show per criterion the pipeline's candidate pages wi
 
 ## Done when
 
-- [ ] Labelling one smoke case end to end writes a label file and captures.
-- [ ] The harness reads label files and computes the evidence score.
+- [x] Labelling one smoke case end to end writes a label file and captures.
+- [x] The harness reads label files and computes the evidence score.
 
 Spec user stories: 74-76. Spec: `../spec.md`.
+
+## Comments
+
+- 2026-11-10: Done. `harness/label.py <case_id>`: terminal tool over a run's cached evidence;
+  per criterion `toc`, `page N`, `find WORDS` to read first, then `cands` for the pipeline's
+  candidates; `met P,P` / `not` / `ins`, `note`, `trap N`, `back`, `skip`, `quit`. Saves
+  `brain/labels/<case_id>.json` after every decision (resumable), appends one capture per
+  decision to `brain/captures.jsonl`, asks for the labeller's own TRL at the end and only then
+  shows the organizer's estimate. Tested end to end on USGS-SDG-012 in a temp folder
+  (`TRL_LABELS_DIR`, `TRL_CAPTURES_FILE`): quit and resume, invalid input, trap capture, full
+  pass with TRL; the harness then scored B 0.333 from that label file. No real labels written.
