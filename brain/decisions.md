@@ -4,7 +4,8 @@ Choices and why (thresholds, models, TRL rule). Newest first.
 
 ## 2026-11-10 — Thresholds from the first sweep (ticket 09; participant delegated the choice)
 
-- Settings: `met_threshold` 0.5, `page_min_score` 0.2, `trl_strong` 0.8, `trl_extreme` 0.95
+- Settings: `met_threshold` 0.5, `page_min_score` 0.2, `trl_strong` 0.85 (first 0.8, see held-out
+  check below), `trl_extreme` 0.95
   (with the option-1 sizes bm25_k 20, fused_k 8, candidates_k 5, one hypothesis).
 - Code change matching the spec: weakly met level criteria no longer move the TRL
   (`trl_weak_moves` false); only strongly met levels do. With weak moves on, every lower met
@@ -18,6 +19,12 @@ Choices and why (thresholds, models, TRL rule). Newest first.
 - `compare.py` says REVERT for this change because it sees only A; overridden on purpose.
 - Known weaknesses for tickets 11/16: quotes are often purpose statements or figure captions;
   C07 (operational) is triggered by purpose statements; re-tune when labels make B measurable.
+- Held-out check (29 cases, run `20261110-190741-heldout`): with `trl_strong` 0.8, A 0.741 vs
+  0.759 for the TRL-6 prior alone (one case worse). `trl_strong` 0.85, the best on the tuning
+  set (A 0.764), gives 0.759 on held-out: equal to the prior, no loss on unseen cases. 0.9 looked
+  better on held-out (0.776) but was not chosen, so the held-out set does not drive tuning.
+  All differences are one or two cases: within noise. TRL moves from the TRL rule are not yet
+  better than the prior; the gain to expect from this version is in the evidence score B.
 
 ## 2026-11-10 — Fallback package 0.1.0 (ticket 01)
 

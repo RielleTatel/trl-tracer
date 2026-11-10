@@ -16,7 +16,7 @@
     "hypotheses_per_criterion": 1,
     "met_threshold": 0.5,
     "page_min_score": 0.2,
-    "trl_strong": 0.8,
+    "trl_strong": 0.85,
     "trl_extreme": 0.95
   },
   "models": [
