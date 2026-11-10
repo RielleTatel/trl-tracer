@@ -212,8 +212,14 @@ def test_levels_above_the_band_need_very_strong_evidence(checklist):
     assert trl_of(checklist, {6: 0.97, 9: 0.92}) == 7
 
 
-def test_weakly_met_levels_are_clamped_to_the_band(checklist):
+def test_weakly_met_levels_keep_the_prior(checklist):
     settings = {"met_threshold": 0.8, "trl_strong": 0.9}
+    assert trl_of(checklist, {8: 0.85}, settings) == 6
+    assert trl_of(checklist, {4: 0.85}, settings) == 6
+
+
+def test_weakly_met_levels_can_be_clamped_to_the_band(checklist):
+    settings = {"met_threshold": 0.8, "trl_strong": 0.9, "trl_weak_moves": True}
     assert trl_of(checklist, {8: 0.85}, settings) == 7
     assert trl_of(checklist, {4: 0.85}, settings) == 5
 

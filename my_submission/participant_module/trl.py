@@ -54,5 +54,7 @@ def predict(met_scores: Mapping[str, float], levels: Mapping[str, int], settings
         return low, f"The strongest met level is TRL {top} ({score:.2f}); raised to TRL {low}."
 
     weak_top = max(by_level)
+    if not settings.get("trl_weak_moves", False):
+        return prior, f"Level criteria are met only weakly (highest TRL {weak_top}); the prior TRL {prior} is kept."
     clamped = min(max(weak_top, low), high)
     return clamped, f"Level criteria are met only weakly (highest TRL {weak_top}); kept within TRL {low}-{high}."
