@@ -290,21 +290,21 @@ watershed similar to the intended environment.
 ## 6. Steps
 
 ### Phase 0 — Setup (needs network and your approval)
-- [ ] Create a git repository for the project folder itself (`git init` in `apacHackathon/`).
+- [x] Create a git repository for the project folder itself (`git init` in `apacHackathon/`).
       The current repository root is the home folder, which tracks unrelated files.
 - [ ] Ask the organizers how the Philippines track selects finalists
       (website: 5 PH finalists; kit: top 40 overall + within standard error). WhatsApp group:
       https://chat.whatsapp.com/F2SW7hDmByv0BKSh5YIBYT
 - [ ] Watch the 1 Oct orientation recording: https://youtu.be/-3a_45gK9DI
-- [ ] Build the base environment: `tools/make_env.py --base-dir <DIR>` (CPU build on macOS), then
+- [x] Build the base environment: `tools/make_env.py --base-dir <DIR>` (CPU build on macOS), then
       `tools/make_env.py --check --base-dir <DIR>`. Note the printed Python for `worker.python`.
-- [ ] Install the server env: `uv venv --python 3.12 .venv` and the lock files (QUICKSTART §2).
+- [x] Install the server env: `uv venv --python 3.12 .venv` and the lock files (QUICKSTART §2).
 - [ ] Download models: `tools/get_models.py bge-base-en-v1.5 <reranker> deberta-v3-base-zeroshot-v2.0-c qwen3-1.7b --store <DIR>`
 - [ ] Download the 99 public cases (about 1.1 GB): `tools/get_public_cases.py` (README step 7),
       with `--labels` for the reference TRLs and `--smoke` for the 3 diagnostic cases
       (USGS-SDG-012, -040, -061).
-- [ ] Copy `config/dev.json` to `config/my.local.json` with our paths (MODULE_GUIDE §8).
-- [ ] Create `brain/` with the 12 empty criterion cards and `sources.md`.
+- [x] Copy `config/dev.json` to `config/my.local.json` with our paths (MODULE_GUIDE §8).
+- [x] Create `brain/` with the 12 empty criterion cards and `sources.md`.
 
 ### Phase 1 — Valid baseline (fallback, ready by Nov 11)
 - [ ] Create `my_submission/participant_module/` with `__init__.py`, `adapter.py`, `LICENSE`
