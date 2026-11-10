@@ -50,10 +50,12 @@ def worker_env(scratch: Path) -> dict[str, str]:
     }
 
 
-def run_case(case_id: str, run_dir: Path, config: dict[str, Any], checklist_model: Any) -> dict[str, Any]:
+def run_case(case_id: str, run_dir: Path, config: dict[str, Any], checklist_model: Any,
+             case: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Run one case in a fresh worker. `case` overrides the public case (tests, other checklists)."""
     from apctt_contracts.results import validate_result
 
-    case = common.worker_case(case_id)
+    case = case or common.worker_case(case_id)
     scratch = run_dir / "scratch" / case_id
     scratch.mkdir(parents=True, exist_ok=True)
     case_path, config_path, record_path = scratch / "case.json", scratch / "config.json", scratch / "record.json"

@@ -20,6 +20,10 @@ sys.path.insert(0, str(ROOT / "my_submission"))
 OFFICIAL_CHECKLIST = ROOT / "apctt-participant-kit-0.5.0-cpu" / "contracts" / "checklist.official.json"
 
 
+def pytest_configure(config: pytest.Config) -> None:
+    config.addinivalue_line("markers", "module: runs the real package in a worker process (slow)")
+
+
 @pytest.fixture
 def checklist() -> dict[str, Any]:
     data = json.loads(OFFICIAL_CHECKLIST.read_text(encoding="utf-8"))
