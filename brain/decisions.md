@@ -2,6 +2,22 @@
 
 Choices and why (thresholds, models, TRL rule). Newest first.
 
+## 2026-11-10 — Recall fixes for Submission 2: derived C12, per-criterion thresholds for C02/C03
+
+- C12 ("the cited evidence concerns the assessed target itself") is met by the strongest other
+  met criterion's evidence when not met on its own (`derived_any_met: ["APCTT-C12"]`; never feeds
+  the TRL rule). B 0.474 -> 0.543, dev 0.620 -> 0.653. 6 of 8 labelled C12 now hit; 012 has no
+  other met criterion, 096 cites a non-gold page.
+- C02 and C03 were met in all 8 labelled reports but never claimed: their gold pages are usually
+  in the top 3 candidates, but deberta scores them 0.01-0.28 on every report. Per-criterion
+  thresholds `met_threshold_by_criterion` {C02: 0.03, C03: 0.03} (extra pages use the same bar).
+  B 0.543 -> 0.681, dev 0.653 -> 0.718, A unchanged (0.750). Claims 21% -> 42% of criteria (labels:
+  60% met). Precision on the labelled cases: 15/15 new claims correct.
+- Trade-off accepted: C03 first quotes on unlabelled cases are mixed (some are results, some are
+  methods or assumptions) and may be judged PARTIAL in the expert review (C, 15%): estimated cost
+  up to ~0.015 against +0.056 from B. Risk: chosen on 8 cases where both criteria are always met;
+  relies on most USGS reports describing an application and presenting results.
+
 ## 2026-11-10 — Submission 1 candidate: trl-tracer 1.0.0 (ticket 14)
 
 - Zip: `submissions/sub1-1.0.0/adzu_submission.zip` (not in git), 28 KB,

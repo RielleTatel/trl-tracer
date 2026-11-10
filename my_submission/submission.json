@@ -2,9 +2,9 @@
   "submission_version": "apctt-submission-v3",
   "team": "adzu",
   "package_id": "trl-tracer",
-  "package_version": "1.0.0",
+  "package_version": "1.1.0",
   "base_id": "apctt-base-9e7fe1324bb6",
-  "declared_package_sha256": "57043ca7712fa838280b58d5230c48103ae6cf7b483ff30f540b1c6dc857a143",
+  "declared_package_sha256": null,
   "license": "MIT",
   "compute": {
     "device": "cpu"
@@ -20,7 +20,14 @@
     "trl_extreme": 0.95,
     "trl_below_prior": "never",
     "borderline_low": 0.2,
-    "llm_yes": 0.8
+    "llm_yes": 0.8,
+    "derived_any_met": [
+      "APCTT-C12"
+    ],
+    "met_threshold_by_criterion": {
+      "APCTT-C02": 0.03,
+      "APCTT-C03": 0.03
+    }
   },
   "models": [
     {

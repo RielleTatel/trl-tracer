@@ -284,3 +284,40 @@ def test_language_model_probability_confirms_borderline_criteria(checklist):
     assert run(checklist, {cid: {"candidates": [cand(2, 0.7)], "llm_p": 0.9}}, settings)["criterion_status"][cid] == "met"
     assert run(checklist, {cid: {"candidates": [cand(2, 0.7)], "llm_p": 0.6}}, settings)["criterion_status"][cid] == "insufficient evidence"
     assert run(checklist, {cid: {"candidates": [cand(2, 0.3)], "llm_p": 0.99}}, settings)["criterion_status"][cid] == "insufficient evidence"
+
+
+def quality_id(checklist, text):
+    return next(c["criterion_id"] for c in checklist["criteria"] if text in c["description"])
+
+
+def test_derived_criterion_is_met_when_another_criterion_is_met(checklist):
+    c12 = quality_id(checklist, "Evidence matches the assessment target")
+    c06 = level_id(checklist, 6)
+    settings = {"derived_any_met": [c12]}
+    result = run(checklist, {c06: {"candidates": [cand(2, 0.97), cand(6, 0.9)]}}, settings)
+    assert result["criterion_status"][c12] == "met"
+    assert [i["page"] for i in result["evidence_reference"][c12]] == [i["page"] for i in result["evidence_reference"][c06]]
+    assert result["evidence_reference"][c12][0]["supporting_span"] == result["evidence_reference"][c06][0]["supporting_span"]
+
+
+def test_derived_criterion_stays_unmet_when_nothing_else_is_met(checklist):
+    c12 = quality_id(checklist, "Evidence matches the assessment target")
+    result = run(checklist, {level_id(checklist, 6): {"candidates": [cand(2, 0.1)]}}, {"derived_any_met": [c12]})
+    assert result["criterion_status"][c12] == "insufficient evidence"
+
+
+def test_derived_setting_with_unknown_ids_is_ignored():
+    changed = {"version": "T", "criteria": [{"criterion_id": "X-1", "description": "The report states a field test."}]}
+    result = run(changed, {"X-1": {"candidates": [cand(2, 0.97)]}}, {"derived_any_met": ["APCTT-C12"]})
+    assert set(result["criterion_status"]) == {"X-1"}
+
+
+def test_per_criterion_threshold_overrides_the_global_one(checklist):
+    c02 = level_id(checklist, 2)
+    criteria = {c02: {"candidates": [cand(2, 0.06), cand(6, 0.05), cand(3, 0.04)]}}
+    assert run(checklist, criteria)["criterion_status"][c02] == "insufficient evidence"
+    result = run(checklist, criteria, {"met_threshold_by_criterion": {c02: 0.03}})
+    assert result["criterion_status"][c02] == "met"
+    assert [i["page"] for i in result["evidence_reference"][c02]] == [2, 6, 3]  # extra pages use the same lower bar
+    other = run(checklist, {level_id(checklist, 6): {"candidates": [cand(2, 0.06)]}}, {"met_threshold_by_criterion": {c02: 0.03}})
+    assert other["criterion_status"][level_id(checklist, 6)] == "insufficient evidence"

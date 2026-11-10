@@ -30,6 +30,8 @@ DEFAULTS: dict[str, Any] = {
     "page_min_score": 0.60,  # extra pages must reach this score
     "span_min_chars": 30,
     "span_max_chars": 300,
+    "met_threshold_by_criterion": {},  # criterion ID -> its own met threshold (extra pages use the lower bar too)
+    "derived_any_met": [],  # criterion IDs met by another met criterion's evidence (if present in the checklist)
     "trl_prior": 6,
     "trl_band": [5, 7],
     "trl_strong": 0.90,
@@ -65,6 +67,9 @@ def _judge(cid: str, entry: Mapping[str, Any], pages: Mapping[str, list[str]], s
     if not usable:
         return "insufficient evidence", [], "No passage in the reports was found for this criterion.", 0.0
 
+    own = (s.get("met_threshold_by_criterion") or {}).get(cid)
+    if isinstance(own, (int, float)):
+        s = {**s, "met_threshold": float(own), "page_min_score": min(float(s["page_min_score"]), float(own))}
     usable.sort(key=lambda c: (-float(c.get("entail", 0.0)), c["document_id"], c["page"]))
     best = float(usable[0].get("entail", 0.0))
     where = f"document {usable[0]['document_id']}, page {usable[0]['page']}"
@@ -126,6 +131,17 @@ def decide(meta: Mapping[str, Any], checklist: Mapping[str, Any], settings: Mapp
             rationale[cid] = why
         else:
             missing[cid] = why
+
+    # Derived criteria (e.g. "the cited evidence concerns the assessed target itself"): when not
+    # met on their own evidence, they are met by the strongest other met criterion's evidence.
+    # Their status never feeds the TRL rule.
+    for cid in [c for c in s["derived_any_met"] if c in status and status[c] != "met"]:
+        donors = sorted((c for c in met_scores if c != cid and c not in s["derived_any_met"]),
+                        key=lambda c: (-met_scores[c], ids.index(c)))
+        if donors:
+            status[cid], references[cid] = "met", [dict(item) for item in references[donors[0]]]
+            missing.pop(cid, None)
+            rationale[cid] = f"The evidence cited for {donors[0]} concerns the assessed target itself."
 
     result: dict[str, Any] = {
         "schema_version": meta["schema_version"],
