@@ -1,4 +1,4 @@
-Status: ready-for-human
+Status: resolved
 Owner: participant
 Blocked by: 10
 
@@ -23,8 +23,8 @@ Run `python3 harness/label.py <case_id>` for each (see `harness/README.md`).
 
 ## Done when
 
-- [ ] 8 label files exist; the harness reports an evidence score on them.
-- [ ] Cards updated with positive examples and traps found while labelling.
+- [x] 8 label files exist; the harness reports an evidence score on them.
+- [x] Cards updated with positive examples and traps found while labelling.
 
 Spec user stories: 77, 78. Spec: `../spec.md`.
 
@@ -39,3 +39,8 @@ Spec user stories: 77, 78. Spec: `../spec.md`.
   whether site calibration counts as lab validation by analogy) and how to read released
   software. First measured B for the pipeline: 0.367 (8 met claims, all correct; 51 of 59
   gold-met criteria missed; a gold page is among the candidates for only 58%).
+- 2026-11-10: Resolved with silver labels (participant's choice). Label rules settled: strict
+  C04, organizer's reading of released software; check_labels 0 flags. Each card's "Positive
+  examples" now lists the verified label quotes (58 examples across the 12 cards). Measured on
+  the labels: per-criterion breakdown shows recall is the weakness (9 of 58 gold-met criteria
+  scored; C02, C03, C12 never claimed) — input for ticket 16.

@@ -32,7 +32,9 @@ The final system was used successfully in actual operations or deployment over a
 The kit says hardware words are read by analogy: a representative version of the product, tested as the criterion says. The product has been in routine operational use for a stated time (for example a monitoring network or model operated since 2005).
 
 ## Positive examples
-- USGS-SDG-0xx p.N: "..." — why it counts
+- USGS-SDG-089 p.5: "In response, a total of 162 water-level and wave-height sensors were deployed at 147 locations during October 26–29 prior to landfall." — Used in an actual emergency deployment under a FEMA mission assignment over a stated period (sensors Oct 26-29, HWM campaign Nov-Dec 2012), following established protocols and a prior Irene deployment
+
+(From the silver labels in brain/labels/, verified verbatim by harness/check_labels.py.)
 
 ## Traps (looks like evidence, is not)
 - USGS-SDG-0xx p.N: "..." — why it does not count

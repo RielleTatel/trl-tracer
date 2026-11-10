@@ -29,7 +29,9 @@ Measured performance is compared with stated requirements or acceptance criteria
 The kit says hardware words are read by analogy: a representative version of the product, tested as the criterion says. Fit or error statistics compared with a stated target (for example 'simulated peaks within 0.5 ft of observed, meeting the calibration criterion').
 
 ## Positive examples
-- USGS-SDG-0xx p.N: "..." — why it counts
+- USGS-SDG-061 p.23: "Although mean bias (0.35) was high and considered not satisfactory according to the criteria by Moriasi and others (2015a), slope of the observed versus simulated regression line was nearly 1:1 (1.07), which supports the" — Compares R2, NSE, RSR and bias with the Moriasi (2007, 2015a) evaluation criteria and says which were met (satisfactory or good) and which were not (prefire bias).
+
+(From the silver labels in brain/labels/, verified verbatim by harness/check_labels.py.)
 
 ## Traps (looks like evidence, is not)
 - USGS-SDG-0xx p.N: "..." — why it does not count

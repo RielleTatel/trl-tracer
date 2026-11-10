@@ -37,7 +37,10 @@ A prototype close to the final configuration was demonstrated in the actual oper
 The kit says hardware words are read by analogy: a representative version of the product, tested as the criterion says. The product was used for real by its intended users in the intended setting (for example a warning system run by an agency, maps adopted for planning).
 
 ## Positive examples
-- USGS-SDG-0xx p.N: "..." — why it counts
+- USGS-SDG-089 p.5: "During and after the storm, data from both efforts were collected and relayed immediately for display on the Storm-Tide Mapper, which allowed FEMA and other emergency management officials to examine the data and best dir" — The system ran in the actual operational environment and its data were used by FEMA and emergency managers for real response decisions.
+- USGS-SDG-099 p.8: "This interpolation is used in the final maps of shallow subsurface geology and structure (fig. 10A; Johnson and others, 2012b)." — The final-configuration grid is used in the published California State Waters Map Series sheets, which is the intended mapping application in the actual channel. This is a judgment call: no wider user
+
+(From the silver labels in brain/labels/, verified verbatim by harness/check_labels.py.)
 
 ## Traps (looks like evidence, is not)
 - USGS-SDG-0xx p.N: "..." — why it does not count

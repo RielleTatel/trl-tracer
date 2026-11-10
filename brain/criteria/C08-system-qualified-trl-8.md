@@ -32,7 +32,9 @@ The final system was completed and qualified through test and demonstration agai
 The kit says hardware words are read by analogy: a representative version of the product, tested as the criterion says. The released product with formal review or quality assurance: an approved software release, a reviewed and published dataset, testing against stated requirements.
 
 ## Positive examples
-- USGS-SDG-0xx p.N: "..." — why it counts
+- USGS-SDG-096 p.15: "DSAS version 5.1 (v5.1) was released in October 2021, has been tested for compatibility with ArcGIS versions 10.4–10.7, and is supported on Windows 7 and Windows 10 operating systems." — Formal release of v5.1 with compatibility testing against its stated platform requirements.
+
+(From the silver labels in brain/labels/, verified verbatim by harness/check_labels.py.)
 
 ## Traps (looks like evidence, is not)
 - USGS-SDG-0xx p.N: "..." — why it does not count

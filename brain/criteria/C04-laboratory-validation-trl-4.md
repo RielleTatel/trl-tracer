@@ -32,7 +32,10 @@ The component (or a low-fidelity breadboard) was tested in a laboratory and the 
 The kit says hardware words are read by analogy: a representative version of the product, tested as the criterion says. A first version of the model or code tested in a controlled setting: verification against known solutions, tests on a subset of data, code checks, with reported results.
 
 ## Positive examples
-- USGS-SDG-0xx p.N: "..." — why it counts
+- USGS-SDG-012 p.9: "This installation includes libraries, source code, startup scripts, and example datasets." — Released P2S v1.0 distribution (libraries, source code, startup scripts, example datasets): the coupling is implemented and runs on test data.
+- USGS-SDG-096 p.98: "Once the sample dataset has been downloaded and added to ArcMap, the following user settings should be applied to run a controlled test of the sample data." — By analogy: the v5.1 software is run as a controlled test on sample (test) shoreline datasets, and the resulting rate outputs are shown in figs. 4.2 and 4.4.
+
+(From the silver labels in brain/labels/, verified verbatim by harness/check_labels.py.)
 
 ## Traps (looks like evidence, is not)
 - USGS-SDG-0xx p.N: "..." — why it does not count
