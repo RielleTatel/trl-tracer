@@ -122,6 +122,7 @@ def append_experiment(run_dir: Path, meta: dict[str, Any], summary: dict[str, An
 
 def main() -> int:
     common.ensure_kit_python()
+    sys.stdout.reconfigure(line_buffering=True)  # progress lines appear at once in log files
     from apctt_contracts.config import Checklist
 
     import compare

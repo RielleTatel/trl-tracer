@@ -10,5 +10,12 @@
     "device": "cpu"
   },
   "settings": {},
-  "models": []
+  "models": [
+    {
+      "catalog_id": "bge-base-en-v1.5"
+    },
+    {
+      "catalog_id": "granite-embedding-reranker-english-r2"
+    }
+  ]
 }

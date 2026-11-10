@@ -5,6 +5,7 @@ This package contains no third-party code. It ships no Python packages and no mo
 At run time it uses:
 
 - the common base environment `apctt-base-9e7fe1324bb6`, installed by the organizer (not shipped);
-- no catalogue models yet (this is the always-abstain version).
-
-Catalogue models used by later versions are listed here, with their licences, as they are added.
+- catalogue models from the organizer's read-only model store (not shipped), listed in
+  `submission.json` `models[]`:
+  - `bge-base-en-v1.5` (BAAI/bge-base-en-v1.5), MIT licence;
+  - `granite-embedding-reranker-english-r2` (ibm-granite/granite-embedding-reranker-english-r2), Apache-2.0 licence.

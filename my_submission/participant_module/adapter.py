@@ -16,10 +16,13 @@ from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
 
-from participant_module import decision, evidence
+from participant_module import decision, evidence, models, rules
 
 ADAPTER_DEFAULTS: dict[str, Any] = {
     "reserve_ms": 15_000,  # stop starting new work when less than this is left
+    "threads": 4,  # CPU threads for torch (the event laptop has 4 cores)
+    "use_dense": True,  # bge-base-en-v1.5 dense retrieval
+    "use_rerank": True,  # granite-embedding-reranker-english-r2
 }
 
 
@@ -43,9 +46,31 @@ class AssessmentModule:
             numpy.random.seed(seed)
         except ImportError:
             pass
+        self.models["rules"] = rules.load(self.asset_root)
+        self.load_ms: dict[str, float] = {}
+        loaders = [("embedder", "use_dense", models.embedder), ("reranker", "use_rerank", models.reranker)]
+        if any(self.settings.get(flag) for _, flag, _ in loaders):
+            try:
+                models.offline()
+                import torch
+
+                torch.manual_seed(seed)
+                models.set_threads(self.settings["threads"])
+            except Exception:
+                print(traceback.format_exc(limit=3), file=sys.stderr)
+        for name, flag, loader in loaders:
+            if not self.settings.get(flag):
+                continue
+            started = time.monotonic()
+            try:  # a model that fails to load is skipped; retrieval degrades instead of failing
+                self.models[name] = loader()
+            except Exception:
+                print(traceback.format_exc(limit=3), file=sys.stderr)
+            self.load_ms[name] = round((time.monotonic() - started) * 1000, 1)
 
     def assess(self, case: Mapping[str, Any], context: Any) -> dict[str, Any]:
         record = evidence.empty_record()
+        record["timings_ms"]["load"] = dict(getattr(self, "load_ms", {}))
         self.last_evidence = record
         reserve = float(self.settings["reserve_ms"])
 
