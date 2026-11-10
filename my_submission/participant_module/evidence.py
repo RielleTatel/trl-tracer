@@ -7,8 +7,11 @@ Stub for now: text extraction, retrieval and judging are added by tickets 05, 07
 
 from __future__ import annotations
 
+import time
 from collections.abc import Callable, Mapping
 from typing import Any
+
+from participant_module import pdf_text
 
 EVIDENCE_VERSION = "trl-tracer-evidence-v1"
 
@@ -26,4 +29,10 @@ def collect(case: Mapping[str, Any], checklist: Mapping[str, Any], settings: Map
         record["skipped"]["evidence"] = True
         return record
     record["skipped"]["evidence"] = False
+
+    started = time.monotonic()
+    for document in case["documents"]:
+        record["documents"].append(pdf_text.extract_document(document, lambda: has_time("text")))
+    record["timings_ms"]["text"] = round((time.monotonic() - started) * 1000, 1)
+    record["skipped"]["text"] = not all(d["complete"] for d in record["documents"])
     return record
