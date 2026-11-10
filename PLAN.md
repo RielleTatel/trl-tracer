@@ -28,33 +28,31 @@ in a fresh process, offline, with 3 minutes per case including model load.
   the evidence page by page instead of making them reread the report.
 - No UI in Stage 1. The Stage 2 web system is built on site at the event, only if we qualify.
 
-## 2. Key dates and schedule
+## 2. Key dates and how we work
 
 | Date | What |
 |---|---|
-| 2026-11-10 | Today. Kit 0.5.0 read. Nothing built yet. |
 | **2026-11-15, 23:59 IST** | **Stage 1 final deadline** = **2026-11-16, 02:29 PHT**. Google Form: https://forms.gle/sU21rDGVDULzWExY9 |
 | 2026-12-01 | Finalists announced |
 | 2026-12-16/17 | Stage 2, Techfest, IIT Bombay (web system built on site; Node.js available) |
 
 Up to two submissions; the latest valid one by the deadline is the final model. No third
-submission. A team with no valid submission is not scored. Treat **Nov 15 evening PHT** as the
-real deadline.
+submission. A team with no valid submission is not scored.
 
-### Day-by-day (PHT)
+**How we work:** flexible, continuous, iterative and incremental development, with no fixed
+schedule. Work proceeds in ordered increments (tickets), each ending runnable, scored by the
+harness and committed. We finish the **full product** and submit it as Submission 1; if the
+loop finds an improvement, it goes in as Submission 2. The always-abstain package is built first
+and kept as an emergency fallback, uploaded only if the full product cannot pass the gates
+before the deadline.
 
-| Day | Goal | Second brain |
-|---|---|---|
-| Tue Nov 10 | Phase 0: environments, models, public cases downloaded; project git repo | Create `brain/` and the 12 empty criterion cards |
-| Wed Nov 11 | Phase 1: always-abstain module passes `make_submission.py` (`VALID`), kept as fallback | Read the 3 smoke cases; first captures into cards |
-| Thu Nov 12 | Phase 2: pipeline v1 end to end on the smoke cases, under the time limit | Distill cards into `assets/criteria_rules.json` v1 |
-| Fri Nov 13 | **Submission 1** (pipeline v1, or the baseline if v1 is not valid by noon). Run all 99 cases | Hand-label 8-10 cases; log failures as new captures |
-| Sat Nov 14 | Phase 3: tune thresholds and the TRL rule; time the largest reports; freeze code by evening | Rules v2 from the failures; record decisions |
-| Sun Nov 15 | Phase 4: final checks, **Submission 2 by midday PHT**; buffer for a refusal | Write README and `declaration.json` from `brain/sources.md` |
-
-Why Submission 1 is the pipeline, not the baseline: there are only two uploads, and the
-diagnostic run only teaches us something if it runs real code. The always-abstain package is
-built and checked on Nov 11 so it can be uploaded at any time if the pipeline is late.
+- **Spec:** `.scratch/trl-tracer/spec.md` (problem, user stories, implementation and testing decisions).
+- **Tickets:** `.scratch/trl-tracer/issues/01-…18-…`, one file each, with `Status:`, `Owner:`,
+  `Blocked by:` and a definition of done. The next ticket is the lowest-numbered open one whose
+  blockers are all done.
+- **Team:** solo, team name `adzu`. The agent builds the plumbing, harness, labelling tool and
+  first versions of judging and the TRL rule; the participant owns tuning, the criterion cards,
+  the hand labels and every keep/revert decision.
 
 ## 3. Scoring (what we optimise)
 
@@ -284,8 +282,8 @@ watershed similar to the intended environment.
   consistent hand labels, a record of decisions, and a ready-made data declaration.
 - Not: a knowledge base the module searches at run time. Only `participant_module/` and
   `assets/` ship, and nothing is read from outside them.
-- Time box: about half a day in total, mostly spent reading the public reports we must read
-  anyway. Skip PARA folders and progressive summarisation; they are overhead for five days.
+- Keep it light: mostly the reading and labelling of public reports we do anyway. Skip PARA
+  folders and progressive summarisation.
 
 ## 6. Steps
 
@@ -299,50 +297,20 @@ watershed similar to the intended environment.
 - [x] Build the base environment: `tools/make_env.py --base-dir <DIR>` (CPU build on macOS), then
       `tools/make_env.py --check --base-dir <DIR>`. Note the printed Python for `worker.python`.
 - [x] Install the server env: `uv venv --python 3.12 .venv` and the lock files (QUICKSTART §2).
-- [ ] Download models: `tools/get_models.py bge-base-en-v1.5 <reranker> deberta-v3-base-zeroshot-v2.0-c qwen3-1.7b --store <DIR>`
-- [ ] Download the 99 public cases (about 1.1 GB): `tools/get_public_cases.py` (README step 7),
+- [x] Download models: `tools/get_models.py ... --store <DIR>` (bge-base-en-v1.5, both rerankers, deberta-v3-base-zeroshot-v2.0-c, qwen3-0.6b, qwen3-1.7b)
+- [x] Download the 99 public cases (about 1.1 GB): `tools/get_public_cases.py` (README step 7),
       with `--labels` for the reference TRLs and `--smoke` for the 3 diagnostic cases
       (USGS-SDG-012, -040, -061).
 - [x] Copy `config/dev.json` to `config/my.local.json` with our paths (MODULE_GUIDE §8).
 - [x] Create `brain/` with the 12 empty criterion cards and `sources.md`.
 
-### Phase 1 — Valid baseline (fallback, ready by Nov 11)
-- [ ] Create `my_submission/participant_module/` with `__init__.py`, `adapter.py`, `LICENSE`
-      (MIT text), `THIRD_PARTY_NOTICES.md`, plus `assets/`, `README.md`, `declaration.json`.
-- [ ] Start from the always-abstain adapter in MODULE_GUIDE §1.
-- [ ] Run it through the local server on `docs/EXAMPLE_REQUEST.json`, then the 3 smoke cases.
-      Require `result_origin: module` and no `output_issues`.
-- [ ] Run `tools/make_submission.py ../my_submission` and get `VALID`. Keep this zip.
+### Phases 1-4 — Build, loop and submit
 
-### Phase 2 — Real pipeline (Nov 12)
-- [ ] Page text extraction (`pypdfium2`), passages with page numbers, OCR fallback.
-- [ ] Rules loader for `assets/criteria_rules.json`, with the checklist-description fallback.
-- [ ] Retrieval (BM25 + `bge-base-en-v1.5`), then rerank. Load every model once in `load()`.
-- [ ] Entailment judge per criterion, threshold leaning towards `met`.
-- [ ] Quote extractor: verbatim on the page, no bare TRL claims, up to 3 pages, strongest first.
-- [ ] TRL rule: prior 6, highest strongly met level, abstain only for out of scope or conflict.
-- [ ] Time and memory guards: `context.remaining_ms()`; peak RSS under 12 GB.
-- [ ] Submission 1 on Nov 13 (or the baseline zip if v1 is not valid by noon).
-
-### Phase 3 — Evaluate and tune (Nov 13-14)
-- [ ] Run all 99 public cases; compare predicted TRL with the organizer's estimates
-      (agreement only; these are not expert labels).
-- [ ] Hand-label 8-10 cases in `brain/labels/` (criterion status and gold pages) to estimate B and C.
-- [ ] Ablations, in order of expected value: rules-file queries vs raw checklist text;
-      `met` threshold; TRL rule vs the plain 6 prior; reranker on/off; NLI vs SLM judge.
-      Log each in `brain/experiments.md`.
-- [ ] Time every case on the largest reports, including cold model load.
-- [ ] Test once with a checklist whose IDs differ (MODULE_GUIDE §8 step 6).
-- [ ] Freeze the code on the evening of Nov 14.
-
-### Phase 4 — Submit (Nov 15)
-- [ ] `tools/make_env.py --check`, `tools/get_models.py --check`, `tools/check_licenses.py`.
-- [ ] Fill in `declaration.json` from `brain/sources.md` (declare the public sample cases;
-      `no_team_training`) and list every catalogue model in `submission.json` `models[]`.
-- [ ] `tools/make_submission.py ../my_submission` ends in `VALID` (or `VALID_WITH_REVIEW` with
-      explainable items). `/v1/package` shows `verified_package_sha256` equal to
-      `declared_package_sha256`.
-- [ ] Upload Submission 2 by midday PHT, Nov 15.
+Tracked as tickets in `.scratch/trl-tracer/issues/` (see section 2): fallback package (01),
+harness (02), decision step (03), adapter and guard (04), text (05), rules file (06),
+retrieval (07), entailment (08), fast cycle and sweeps (09), labelling tool (10), hand labels
+(11), LLM second opinion (12), OCR (13), hardening and packaging (14), Submission 1 (15),
+tuning loop (16), `qwen3-1.7b` experiment (17), Submission 2 (18).
 
 ### Phase 5 — If we qualify (Stage 2, on site)
 - [ ] Prepare while waiting: the front-end design only (no code upload in advance). Bundle all
