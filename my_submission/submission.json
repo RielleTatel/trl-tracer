@@ -1,0 +1,14 @@
+{
+  "submission_version": "apctt-submission-v3",
+  "team": "adzu",
+  "package_id": "trl-tracer",
+  "package_version": "0.1.0",
+  "base_id": "apctt-base-9e7fe1324bb6",
+  "declared_package_sha256": "ce113e7507a8048138ea0888928769b42ff01592d57eeeb9076e50396c155f95",
+  "license": "MIT",
+  "compute": {
+    "device": "cpu"
+  },
+  "settings": {},
+  "models": []
+}

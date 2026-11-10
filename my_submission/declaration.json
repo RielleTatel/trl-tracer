@@ -1,0 +1,31 @@
+{
+  "declaration_version": "apctt-declaration-example-v1",
+  "team": "adzu",
+  "package_id": "trl-tracer",
+  "package_version": "0.1.0",
+  "declared_package_sha256": "ce113e7507a8048138ea0888928769b42ff01592d57eeeb9076e50396c155f95",
+  "team_training": "no_team_training",
+  "training": null,
+  "data_sources": [
+    {
+      "source": "APCTT public sample cases (contracts/public-cases.json, USGS reports)",
+      "version": "kit 0.5.0",
+      "date": "2026-11-10",
+      "role": "development and checking of the module; tuning and hand-labelling in later versions",
+      "label_origin": "organizer's estimated TRL per report; not expert labels",
+      "linked_project": "none",
+      "license": "U.S. public domain (USGS); some figures third-party, see the manifest's licence_note"
+    }
+  ],
+  "inference_assets": {
+    "source_code": "participant_module/ (package hash in submission.json)",
+    "weights": [],
+    "prompts_or_rules": [],
+    "reference_assets": [],
+    "dependency_declarations": [
+      "the common base environment (base_id in submission.json)",
+      "catalogue models listed in submission.json models[] (none in this version)"
+    ]
+  },
+  "notes": "Always-abstain fallback version: no models, no rules, no training."
+}
