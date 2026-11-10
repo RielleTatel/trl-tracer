@@ -27,3 +27,7 @@ worker_tmp/
 
 # Logs
 *.log
+
+# Harness run records and packed submissions
+runs/
+submissions/
