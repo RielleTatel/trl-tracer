@@ -9,13 +9,21 @@
   "compute": {
     "device": "cpu"
   },
-  "settings": {},
+  "settings": {
+    "bm25_k": 20,
+    "fused_k": 8,
+    "candidates_k": 5,
+    "hypotheses_per_criterion": 1
+  },
   "models": [
     {
       "catalog_id": "bge-base-en-v1.5"
     },
     {
       "catalog_id": "granite-embedding-reranker-english-r2"
+    },
+    {
+      "catalog_id": "deberta-v3-base-zeroshot-v2.0-c"
     }
   ]
 }

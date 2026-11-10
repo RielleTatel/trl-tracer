@@ -11,7 +11,7 @@ import time
 from collections.abc import Callable, Mapping
 from typing import Any
 
-from participant_module import pdf_text, retrieve, rules
+from participant_module import judge, pdf_text, retrieve, rules
 
 EVIDENCE_VERSION = "trl-tracer-evidence-v1"
 
@@ -51,4 +51,9 @@ def collect(case: Mapping[str, Any], checklist: Mapping[str, Any], settings: Map
     record["criteria"] = retrieve.retrieve(passages, per_criterion, models, settings,
                                            lambda: has_time("retrieve"), record["skipped"])
     _timed(record, "retrieve", started)
+
+    started = time.monotonic()
+    judge.judge(record["criteria"], per_criterion, models.get("entailer"), settings,
+                lambda: has_time("judge"), record["skipped"])
+    _timed(record, "judge", started)
     return record

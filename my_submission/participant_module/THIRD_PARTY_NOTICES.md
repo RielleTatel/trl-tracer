@@ -9,3 +9,4 @@ At run time it uses:
   `submission.json` `models[]`:
   - `bge-base-en-v1.5` (BAAI/bge-base-en-v1.5), MIT licence;
   - `granite-embedding-reranker-english-r2` (ibm-granite/granite-embedding-reranker-english-r2), Apache-2.0 licence.
+  - `deberta-v3-base-zeroshot-v2.0-c` (MoritzLaurer/deberta-v3-base-zeroshot-v2.0-c), MIT licence.

@@ -23,6 +23,7 @@ ADAPTER_DEFAULTS: dict[str, Any] = {
     "threads": 4,  # CPU threads for torch (the event laptop has 4 cores)
     "use_dense": True,  # bge-base-en-v1.5 dense retrieval
     "use_rerank": True,  # granite-embedding-reranker-english-r2
+    "use_judge": True,  # deberta-v3-base-zeroshot-v2.0-c entailment
 }
 
 
@@ -48,7 +49,8 @@ class AssessmentModule:
             pass
         self.models["rules"] = rules.load(self.asset_root)
         self.load_ms: dict[str, float] = {}
-        loaders = [("embedder", "use_dense", models.embedder), ("reranker", "use_rerank", models.reranker)]
+        loaders = [("embedder", "use_dense", models.embedder), ("reranker", "use_rerank", models.reranker),
+                   ("entailer", "use_judge", models.entailer)]
         if any(self.settings.get(flag) for _, flag, _ in loaders):
             try:
                 models.offline()

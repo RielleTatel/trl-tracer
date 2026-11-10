@@ -41,6 +41,13 @@ def embedder(catalog_id: str = "bge-base-en-v1.5") -> Any:
     return SentenceTransformer(str(path(catalog_id)), device="cpu", local_files_only=True)
 
 
+def entailer(catalog_id: str = "deberta-v3-base-zeroshot-v2.0-c") -> Any:
+    offline()
+    from participant_module.judge import load_entailer
+
+    return load_entailer(path(catalog_id))
+
+
 def reranker(catalog_id: str = "granite-embedding-reranker-english-r2") -> Any:
     offline()
     from sentence_transformers import CrossEncoder
