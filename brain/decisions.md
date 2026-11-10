@@ -2,6 +2,17 @@
 
 Choices and why (thresholds, models, TRL rule). Newest first.
 
+## 2026-11-10 — Label rules: strict C04, organizer's reading of released software
+
+- C04 is met only with a separate controlled or test-data stage; site calibration counts for
+  C05. Applied to USGS-SDG-040, 043, 081, 099 (C04 -> insufficient evidence); 096 keeps C04
+  (explicit sample-data test runs).
+- Released software is read the organizer's way: a released working program with source code
+  or example datasets counts for C03/C04; a formal release tested against stated requirements
+  counts for C08. Applied to USGS-SDG-012 (C03, C04 met p9; TRL 4) and 096 (C08 met p15; TRL 8).
+- Rules added to the labelling brief; every edit is listed in each label's `revisions`.
+  `check_labels.py`: 0 flags. Pipeline baseline on the revised labels: B 0.368, dev 0.578.
+
 ## 2026-11-10 — Thresholds from the first sweep (ticket 09; participant delegated the choice)
 
 - Settings: `met_threshold` 0.5, `page_min_score` 0.2, `trl_strong` 0.85 (first 0.8, see held-out

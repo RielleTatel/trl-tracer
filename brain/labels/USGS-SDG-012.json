@@ -1,35 +1,113 @@
 {
   "case_id": "USGS-SDG-012",
-  "trl": 2,
-  "trl_reason": "The report is a user's manual for P2S v1.0: it sets out the cited principles (PRMS, SNTemp, stream-temperature studies) and the coupling design and execution steps, but reports no test, calibration, validation or application results for P2S itself.",
+  "trl": 4,
+  "trl_reason": "Released, working coupled program with example datasets (organizer's reading of released software); no field validation reported.",
   "label_origin": "ai-silver: AI-generated development label following .scratch/trl-tracer/labelling-brief.md; not an expert label",
   "criteria": {
     "APCTT-C01": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 6}, {"document_id": "D001", "page": 8}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 6
+        },
+        {
+          "document_id": "D001",
+          "page": 8
+        }
+      ],
       "quote": "Each hydrologic component used to model the generation of streamflow is represented within PRMS by a process algorithm that is based on a physical law or empirical relation with measured or estimated characteristics (fig. 1).",
       "note": "Introduction states the hydrologic (PRMS physical-process) and stream heat-transport (SNTemp) principles behind P2S, citing studies and model literature."
     },
     "APCTT-C02": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 9}, {"document_id": "D001", "page": 10}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 9
+        },
+        {
+          "document_id": "D001",
+          "page": 10
+        }
+      ],
       "quote": "P2S is implemented as loosely coupled software (fig. 3).",
       "note": "Design of P2S describes how it works: PRMS outputs are read by P2S to build SNTemp input files, then SNTemp simulates daily stream temperature per segment."
     },
-    "APCTT-C03": {"status": "insufficient evidence", "pages": [], "note": "No analytical or test results are shown demonstrating that the coupling works (no example output, comparison or check)."},
-    "APCTT-C04": {"status": "insufficient evidence", "pages": [], "note": "No test of P2S on controlled or test data is reported; example datasets are only mentioned as part of the distribution."},
-    "APCTT-C05": {"status": "insufficient evidence", "pages": [], "note": "No calibration or validation of the coupled output against observed streamflow or stream temperature is reported."},
-    "APCTT-C06": {"status": "insufficient evidence", "pages": [], "note": "No application of P2S to a real study watershed is described; execution steps are generic instructions."},
-    "APCTT-C07": {"status": "insufficient evidence", "pages": [], "note": "No use of P2S by intended users for real decisions is reported."},
-    "APCTT-C08": {"status": "insufficient evidence", "pages": [], "note": "Version 1.0 is released as a user's manual, but no testing against stated requirements or formal qualification is reported."},
-    "APCTT-C09": {"status": "insufficient evidence", "pages": [], "note": "No routine operational use over a stated period is reported."},
-    "APCTT-C10": {"status": "insufficient evidence", "pages": [], "note": "No requirements or acceptance criteria are stated and no measured performance is compared against them."},
-    "APCTT-C11": {"status": "insufficient evidence", "pages": [], "note": "No test is described, so no test conditions or tested-article configuration are given; only installation and input requirements are listed."},
+    "APCTT-C03": {
+      "status": "met",
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 9
+        }
+      ],
+      "quote": "This installation includes libraries, source code, startup scripts, and example datasets.",
+      "note": "Released P2S v1.0 distribution (libraries, source code, startup scripts, example datasets): the coupling is implemented and runs on test data."
+    },
+    "APCTT-C04": {
+      "status": "met",
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 9
+        }
+      ],
+      "quote": "This installation includes libraries, source code, startup scripts, and example datasets.",
+      "note": "Released P2S v1.0 distribution (libraries, source code, startup scripts, example datasets): the coupling is implemented and runs on test data."
+    },
+    "APCTT-C05": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "No calibration or validation of the coupled output against observed streamflow or stream temperature is reported."
+    },
+    "APCTT-C06": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "No application of P2S to a real study watershed is described; execution steps are generic instructions."
+    },
+    "APCTT-C07": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "No use of P2S by intended users for real decisions is reported."
+    },
+    "APCTT-C08": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "Version 1.0 is released as a user's manual, but no testing against stated requirements or formal qualification is reported."
+    },
+    "APCTT-C09": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "No routine operational use over a stated period is reported."
+    },
+    "APCTT-C10": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "No requirements or acceptance criteria are stated and no measured performance is compared against them."
+    },
+    "APCTT-C11": {
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "No test is described, so no test conditions or tested-article configuration are given; only installation and input requirements are listed."
+    },
     "APCTT-C12": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 9}, {"document_id": "D001", "page": 10}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 9
+        },
+        {
+          "document_id": "D001",
+          "page": 10
+        }
+      ],
       "quote": "This report describes P2S version 1.0 and serves as the user’s manual.",
       "note": "The cited evidence (design, SNTemp modifications, execution steps) concerns the P2S coupling software itself, not only PRMS or SNTemp separately."
     }
-  }
+  },
+  "revisions": [
+    "2026-11-10: organizer's reading of released software (participant decision): the released, working coupled program with source code and example datasets shows the integration is implemented (C03, C04); TRL 4."
+  ]
 }

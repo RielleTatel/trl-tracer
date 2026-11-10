@@ -6,43 +6,92 @@
   "criteria": {
     "APCTT-C01": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 7}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 7
+        }
+      ],
       "quote": "Sediment thickness was calculated as the difference between the seafloor and bLGM travel times.",
       "note": "Page 7 states the physical basis (two-way travel time converted with 1,500 m/s water and 1,600 m/s sediment velocities) and the gridding principle for discontinuous features, citing USGS surveys and Esri/Johnson references."
     },
     "APCTT-C02": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 6}, {"document_id": "D001", "page": 7}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 6
+        },
+        {
+          "document_id": "D001",
+          "page": 7
+        }
+      ],
       "quote": "A satisfactory interpolation of the two datasets that accounted for regional geologic structure was developed using geographic information systems modeling and graphics software tools.",
       "note": "The application is producing the depth-to-bLGM and sediment-thickness map layers for the California State Waters Map Series (p. 6). Page 7 explains how the GIS workflow turns seismic picks into gridded surfaces."
     },
     "APCTT-C03": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 8}, {"document_id": "D001", "page": 9}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 8
+        },
+        {
+          "document_id": "D001",
+          "page": 9
+        }
+      ],
       "quote": "The most satisfactory approach to accommodate the fault was to generate two separate grids–one to the north of the fault and one to the south (fig. 9)–and then mosaic the two into one (fig. 7D).",
       "note": "The report gives analytical results comparing TopoToRaster, TIN with and without breaklines, and edited-isopach gridding. These show the critical function, a continuous surface that respects the faults."
     },
     "APCTT-C04": {
-      "status": "met",
-      "pages": [{"document_id": "D001", "page": 8}],
-      "quote": "This grid provides a rapid overview, but retains some patchiness from along-track data variations.",
-      "note": "By analogy: early versions of the workflow (plain TopoToRaster, TIN) were run on the exported point data and their shortcomings were reported (patchiness, weak fault accommodation) before the final method was chosen."
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "Strict C04 rule: no separate controlled or test-data stage is reported; calibration against site observations counts for C05, not C04."
     },
     "APCTT-C05": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 9}, {"document_id": "D001", "page": 8}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 9
+        },
+        {
+          "document_id": "D001",
+          "page": 8
+        }
+      ],
       "quote": "along-track seafloor depths digitized in SeisWorks® and the multibeam bathymetry was 0.6 m, with a standard deviation of 5 m, an acceptable uncertainty for the depth of the bLGM (table 1).",
       "note": "Validated against independent real observations from the target area: SeisWorks seafloor depths compared with multibeam bathymetry (Table 1: mean difference 0.6 m, SD 4.7 m)."
     },
     "APCTT-C06": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 9}, {"document_id": "D001", "page": 10}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 9
+        },
+        {
+          "document_id": "D001",
+          "page": 10
+        }
+      ],
       "quote": "The thickness of the uppermost Pleistocene to Holocene sediments in the State waters of the eastern Santa Barbara Channel has a mean value of 15 m and a maximum thickness of 57 m (table 2).",
       "note": "The working workflow was applied to the full real study area (the intended environment) and produced region-wide thickness, depth and volume results (Tables 2-3)."
     },
     "APCTT-C07": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 8}, {"document_id": "D001", "page": 6}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 8
+        },
+        {
+          "document_id": "D001",
+          "page": 6
+        }
+      ],
       "quote": "This interpolation is used in the final maps of shallow subsurface geology and structure (fig. 10A; Johnson and others, 2012b).",
       "note": "The final-configuration grid is used in the published California State Waters Map Series sheets, which is the intended mapping application in the actual channel. This is a judgment call: no wider user decisions are described."
     },
@@ -63,15 +112,36 @@
     },
     "APCTT-C11": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 7}, {"document_id": "D001", "page": 8}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 7
+        },
+        {
+          "document_id": "D001",
+          "page": 8
+        }
+      ],
       "quote": "The data points are spaced 1 m apart along track (the shot interval of the seismic-reflection data systems) and are spaced 1–2 km apart cross track (fig. 3).",
       "note": "The input data and conditions are described (2007/2008 surveys, ~925,000 points, spacing, velocities, clip mask). Page 8 gives the exact gridding parameters and the final configuration used for the published maps."
     },
     "APCTT-C12": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 8}, {"document_id": "D001", "page": 9}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 8
+        },
+        {
+          "document_id": "D001",
+          "page": 9
+        }
+      ],
       "quote": "The first sediment thickness grid interpolated from the SeisWorks® point data was processed with the ArcGIS TopoToRaster tool (Esri, 2011), an interpolator designed for topographic surfaces that often serves well for other types of continuous fields.",
       "note": "All of the evidence is about the Santa Barbara seafloor-sediment GIS interpolation workflow itself, not only the parent map series."
     }
-  }
+  },
+  "revisions": [
+    "2026-11-10: strict C04 rule (participant decision): C04 met only with a controlled or test-data stage."
+  ]
 }

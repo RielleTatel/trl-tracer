@@ -50,19 +50,9 @@
       "note": "Calibration results (table 1) show the model reproduces observed high-tide heights and plausible lag times at the four marshes."
     },
     "APCTT-C04": {
-      "status": "met",
-      "pages": [
-        {
-          "document_id": "D001",
-          "page": 11
-        },
-        {
-          "document_id": "D001",
-          "page": 12
-        }
-      ],
-      "quote": "The calibration of the model was achieved by fitting the best value for diffusivity, given the measured lengths that result in the observed tide heights.",
-      "note": "By analogy: the first model version was tested on existing study datasets (calibration, opening-diffusivity relation, sensitivity to Df and x) with results reported."
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "Strict C04 rule: no separate controlled or test-data stage is reported; calibration against site observations counts for C05, not C04."
     },
     "APCTT-C05": {
       "status": "met",
@@ -148,5 +138,8 @@
       "quote": "The method was validated by applying it to the four marshes by using different dates for which observed tide heights were available.",
       "note": "All calibration, validation and application evidence is about the diffusion-analogy model itself in the named Connecticut marshes."
     }
-  }
+  },
+  "revisions": [
+    "2026-11-10: strict C04 rule (participant decision): C04 met only with a controlled or test-data stage."
+  ]
 }

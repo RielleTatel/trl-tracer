@@ -6,37 +6,81 @@
   "criteria": {
     "APCTT-C01": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 12}, {"document_id": "D001", "page": 13}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 12
+        },
+        {
+          "document_id": "D001",
+          "page": 13
+        }
+      ],
       "quote": "These energy losses are quantified by the Manning’s roughness coefficient (“n” value) (Barnes, 1967).",
       "note": "States the hydraulic principles (1D step-backwater HEC-RAS modelling, Manning roughness energy losses) with cited literature."
     },
     "APCTT-C02": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 9}, {"document_id": "D001", "page": 14}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 9
+        },
+        {
+          "document_id": "D001",
+          "page": 14
+        }
+      ],
       "quote": "One way to address these informational gaps is to produce a library of flood-inundation maps that are referenced to the stages recorded at the USGS streamgage.",
       "note": "Describes the application: a stage-referenced map library used with gage data by emergency responders to judge flood depth and extent."
     },
     "APCTT-C03": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 13}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 13
+        }
+      ],
       "quote": "The absolute value of differences between observed and simulated water-surface elevations for the nine simulated flows at the USGS streamgage were equal to or less than 0.33 ft (table 4).",
       "note": "Analytical calibration results (table 4) show the model reproduces observed water-surface elevations, the map library's critical function."
     },
     "APCTT-C04": {
-      "status": "met",
-      "pages": [{"document_id": "D001", "page": 13}, {"document_id": "D001", "page": 12}],
-      "quote": "Model calibration was completed by adjusting Manning’s n values until the results of the hydraulic computations closely agreed with the observed water-surface elevations for given flows.",
-      "note": "By analogy: the first model version was tested against target stage-discharge data and its results were reported. There is no separate test-data stage; the site calibration covers this level."
+      "status": "insufficient evidence",
+      "pages": [],
+      "note": "Strict C04 rule: no separate controlled or test-data stage is reported; calibration against site observations counts for C05, not C04."
     },
     "APCTT-C05": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 13}, {"document_id": "D001", "page": 12}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 13
+        },
+        {
+          "document_id": "D001",
+          "page": 12
+        }
+      ],
       "quote": "The HEC–RAS model was calibrated to the current stage-discharge relation at the North Platte River at Scottsbluff streamgage.",
       "note": "Calibrated against real observations at the study-reach streamgage, with differences reported in table 4."
     },
     "APCTT-C06": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 14}, {"document_id": "D001", "page": 15}, {"document_id": "D001", "page": 16}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 14
+        },
+        {
+          "document_id": "D001",
+          "page": 15
+        },
+        {
+          "document_id": "D001",
+          "page": 16
+        }
+      ],
       "quote": "Flood-inundation maps for the 8.8-mi reach of the North Platte River at Scottsbluff, Nebr., were created in a GIS by combining the water-surface profiles and DEM data.",
       "note": "The working model was applied to the actual target reach, producing 10 maps that are delivered through the USGS mapping application (fig. 2 shows the 18-ft map)."
     },
@@ -62,15 +106,36 @@
     },
     "APCTT-C11": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 13}, {"document_id": "D001", "page": 12}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 13
+        },
+        {
+          "document_id": "D001",
+          "page": 12
+        }
+      ],
       "quote": "Subcritical (tranquil) flow regime was assumed for the simulations.",
       "note": "Defines the simulation conditions (steady flow, subcritical regime, normal-depth boundary, 9-18 ft stages) and the configuration (HEC-RAS 5.0.3, lidar DEM, 6-ft grid, 8.8-mi reach)."
     },
     "APCTT-C12": {
       "status": "met",
-      "pages": [{"document_id": "D001", "page": 14}, {"document_id": "D001", "page": 13}],
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 14
+        },
+        {
+          "document_id": "D001",
+          "page": 13
+        }
+      ],
       "quote": "The mapping application enables the production of customized flood-inundation maps from the map library for the North Platte River at Scottsbluff, Nebr.",
       "note": "The evidence concerns the North Platte River inundation-map library and application itself, not just the parent FIM program."
     }
-  }
+  },
+  "revisions": [
+    "2026-11-10: strict C04 rule (participant decision): C04 met only with a controlled or test-data stage."
+  ]
 }

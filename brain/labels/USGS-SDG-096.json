@@ -1,15 +1,24 @@
 {
   "case_id": "USGS-SDG-096",
-  "trl": 4,
-  "trl_reason": "The guide documents the principles and methods of the DSAS v5.1 rate calculations with worked examples, and runs the software as a 'controlled test' on sample shoreline data with expected results shown. It reports no validation against independent observations, no acceptance criteria, and no documented operational use of v5.1.",
+  "trl": 8,
+  "trl_reason": "Formally released software tested for compatibility (organizer's reading of released software).",
   "label_origin": "ai-silver: AI-generated development label following .scratch/trl-tracer/labelling-brief.md; not an expert label",
   "criteria": {
     "APCTT-C01": {
       "status": "met",
       "pages": [
-        {"document_id": "D001", "page": 27},
-        {"document_id": "D001", "page": 65},
-        {"document_id": "D001", "page": 64}
+        {
+          "document_id": "D001",
+          "page": 27
+        },
+        {
+          "document_id": "D001",
+          "page": 65
+        },
+        {
+          "document_id": "D001",
+          "page": 64
+        }
       ],
       "quote": "DSAS uses a measurement baseline method (Leatherman and Clow, 1983) to calculate rate-of-change statistics for a time series of shorelines.",
       "note": "States the measurement-baseline and regression/end-point statistical principles behind the rate calculations, citing literature (Leatherman and Clow; Dolan; Crowell; Genz)."
@@ -17,9 +26,18 @@
     "APCTT-C02": {
       "status": "met",
       "pages": [
-        {"document_id": "D001", "page": 25},
-        {"document_id": "D001", "page": 27},
-        {"document_id": "D001", "page": 15}
+        {
+          "document_id": "D001",
+          "page": 25
+        },
+        {
+          "document_id": "D001",
+          "page": 27
+        },
+        {
+          "document_id": "D001",
+          "page": 15
+        }
       ],
       "quote": "The distances from the baseline to each intersection point along a transect (fig. 3) are used to compute the selected statistics.",
       "note": "Describes how the tool works in its application: transects cast from a baseline intersect dated shorelines, and the intersect distances and dates give the change rates."
@@ -27,9 +45,18 @@
     "APCTT-C03": {
       "status": "met",
       "pages": [
-        {"document_id": "D001", "page": 66},
-        {"document_id": "D001", "page": 69},
-        {"document_id": "D001", "page": 90}
+        {
+          "document_id": "D001",
+          "page": 66
+        },
+        {
+          "document_id": "D001",
+          "page": 69
+        },
+        {
+          "document_id": "D001",
+          "page": 90
+        }
       ],
       "quote": "The slope of the equation describing the line is the rate (1.34 meters per year).",
       "note": "Worked analytical examples show the critical function on a shoreline dataset: an LRR of 1.34 m/yr with LCI95 of 0.50, plus a full numeric summary report."
@@ -37,9 +64,18 @@
     "APCTT-C04": {
       "status": "met",
       "pages": [
-        {"document_id": "D001", "page": 98},
-        {"document_id": "D001", "page": 104},
-        {"document_id": "D001", "page": 114}
+        {
+          "document_id": "D001",
+          "page": 98
+        },
+        {
+          "document_id": "D001",
+          "page": 104
+        },
+        {
+          "document_id": "D001",
+          "page": 114
+        }
       ],
       "quote": "Once the sample dataset has been downloaded and added to ArcMap, the following user settings should be applied to run a controlled test of the sample data.",
       "note": "By analogy: the v5.1 software is run as a controlled test on sample (test) shoreline datasets, and the resulting rate outputs are shown in figs. 4.2 and 4.4."
@@ -60,9 +96,15 @@
       "note": "No statement that v5.1 was used by its intended users for real decisions; the mention of a 'global user base' and of NASC needs is general and not tied to v5.1."
     },
     "APCTT-C08": {
-      "status": "insufficient evidence",
-      "pages": [],
-      "note": "v5.1 is said to be released and 'tested for compatibility' with ArcGIS 10.4-10.7, but no qualification testing of the rate calculations against requirements is reported."
+      "status": "met",
+      "pages": [
+        {
+          "document_id": "D001",
+          "page": 15
+        }
+      ],
+      "quote": "DSAS version 5.1 (v5.1) was released in October 2021, has been tested for compatibility with ArcGIS versions 10.4–10.7, and is supported on Windows 7 and Windows 10 operating systems.",
+      "note": "Formal release of v5.1 with compatibility testing against its stated platform requirements."
     },
     "APCTT-C09": {
       "status": "insufficient evidence",
@@ -77,9 +119,18 @@
     "APCTT-C11": {
       "status": "met",
       "pages": [
-        {"document_id": "D001", "page": 96},
-        {"document_id": "D001", "page": 106},
-        {"document_id": "D001", "page": 90}
+        {
+          "document_id": "D001",
+          "page": 96
+        },
+        {
+          "document_id": "D001",
+          "page": 106
+        },
+        {
+          "document_id": "D001",
+          "page": 90
+        }
       ],
       "quote": "The basic sample data include four shoreline positions for a section of the North Carolina coast near Rodanthe along the Outer Banks and a reference baseline from which the DSAS transects are cast.",
       "note": "Test conditions are defined: sample shoreline sources, dates and proxies, the ArcGIS geodatabase environment, and run settings (spacing, smoothing, CI, uncertainty) for the released DSAS add-in."
@@ -87,12 +138,24 @@
     "APCTT-C12": {
       "status": "met",
       "pages": [
-        {"document_id": "D001", "page": 63},
-        {"document_id": "D001", "page": 66},
-        {"document_id": "D001", "page": 104}
+        {
+          "document_id": "D001",
+          "page": 63
+        },
+        {
+          "document_id": "D001",
+          "page": 66
+        },
+        {
+          "document_id": "D001",
+          "page": 104
+        }
       ],
       "quote": "Each method used to calculate shoreline rates of change is based on measured differences between shoreline positions through time.",
       "note": "The cited evidence concerns the DSAS rate-of-change calculations themselves (methods, worked examples and sample-data rate outputs), not a different element or the parent program."
     }
-  }
+  },
+  "revisions": [
+    "2026-11-10: organizer's reading of released software (participant decision): the formal v5.1 release tested for compatibility counts as qualification (C08); TRL 8."
+  ]
 }

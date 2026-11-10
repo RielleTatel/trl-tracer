@@ -50,7 +50,14 @@ The official checklist `APCTT-2026-CHECKLIST-v1` has 12 criteria. For **each** c
 5. **Quote**: for every `met` criterion, copy one short sentence (under 300 characters) **verbatim**
    from the first gold page's text as given in the file (same words; whitespace may differ).
    Never paraphrase.
-6. **Do not guess the TRL from anything outside the report.** Give your own TRL estimate (1-9)
+6. **C04 (strict rule, participant decision 2026-11-10):** met only when the report has a
+   separate controlled or test-data stage (synthetic data, sample/test datasets, benchmark
+   problems). Calibration or validation against site observations counts for C05, not C04.
+7. **Released software (organizer's reading, participant decision 2026-11-10):** a released,
+   working program distributed with source code or example datasets counts as implemented and
+   tested on test data (C03, C04); a formal release tested against stated requirements (for
+   example platform compatibility) counts as qualification (C08).
+8. **Do not guess the TRL from anything outside the report.** Give your own TRL estimate (1-9)
    from the evidence at the end.
 
 ## Input
