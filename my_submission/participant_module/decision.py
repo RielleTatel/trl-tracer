@@ -30,9 +30,11 @@ DEFAULTS: dict[str, Any] = {
     "page_min_score": 0.60,  # extra pages must reach this score
     "span_min_chars": 30,
     "span_max_chars": 300,
+    "purpose_quote_ok": [],  # criterion IDs for which a purpose statement is good evidence (intended use)
     "met_threshold_by_criterion": {},  # criterion ID -> its own met threshold (extra pages use the lower bar too)
     "derived_any_met": [],  # criterion IDs met by another met criterion's evidence (if present in the checklist)
     "trl_prior": 6,
+    "trl_prior_by_target": [],  # [{"any": [words], "trl": n}]: the first rule whose word is in the target description sets the prior; no "any" always matches
     "trl_band": [5, 7],
     "trl_strong": 0.90,
     "trl_extreme": 0.95,
@@ -96,7 +98,7 @@ def _judge(cid: str, entry: Mapping[str, Any], pages: Mapping[str, list[str]], s
         span = quotes.quotation(
             c.get("text", ""), pages[c["document_id"]][c["page"] - 1],
             min_chars=int(s["span_min_chars"]), max_chars=int(s["span_max_chars"]),
-            ranked=c.get("sentences"),
+            ranked=c.get("sentences"), purpose_ok=cid in (s.get("purpose_quote_ok") or []),
         )
         if span is None:
             continue
@@ -161,6 +163,8 @@ def decide(meta: Mapping[str, Any], checklist: Mapping[str, Any], settings: Mapp
         return result
 
     levels = trl.criterion_levels(checklist)
+    description = str((meta.get("assessment_target") or {}).get("description", ""))
+    s = {**s, "trl_prior": trl.target_prior(description, s)}
     predicted, reason = trl.predict(met_scores, levels, s)
     quality_ids = [cid for cid in ids if cid not in levels]
     quality_met = sum(1 for cid in quality_ids if status[cid] == "met")

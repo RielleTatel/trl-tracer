@@ -2,6 +2,29 @@
 
 Choices and why (thresholds, models, TRL rule). Newest first.
 
+## 2026-11-11 — TRL prior from the target description; tidy quotations (Submission 2 candidate)
+
+- Audit finding: the TRL rule predicted 6 for all 99 public cases. The words of the assessment
+  target description separate the organizer's levels: "model" is in 33 of 54 TRL-6 targets and
+  0 of 29 TRL-7 targets. New setting `trl_prior_by_target`: model/simulation words -> 6, then
+  map/service/system/application words -> 7, otherwise `trl_prior` (6). Slow runs
+  `20261111-004815-tuning` and the held-out run after it: A 0.750 -> 0.843 (tuning), 0.759 -> 0.793
+  (held-out). The variant "everything without a model word is 7" gave 0.829 / 0.810; not chosen,
+  because a target with no cue then risks an off-by-2 (TRL 5 predicted 7).
+- Caveats: the pattern was found looking at all 99 cases, so the held-out number is not clean; the
+  hidden cases are scored against expert TRLs, not the organizer's estimates.
+- Quotations (only the first one of a claim is judged in C): running headers and section headings
+  glued to a sentence are dropped; a fragment cut at an abbreviation ("U.S.", "fig.") is widened
+  to the whole sentence (the splitter no longer cuts there); complete sentences are tried before
+  ones that need shortening; purpose statements (allowed for C02: `purpose_quote_ok`), fragments,
+  table rows and reference-list entries are tried last; contents lines are never quoted and
+  contents pages are page traps. Of 354 first quotes on the tuning set: cut at an abbreviation
+  22 -> 0, starting mid-sentence or with a header 43 -> 7, without closing punctuation 75 -> 25.
+- B: unchanged in the replay (0.681, same pages cited); 0.663 in the slow run, because passages are
+  split slightly differently and four labelled criteria near a threshold flipped (040 C06 lost,
+  043 C10 and 099 C04 newly claimed, 099 C11 gained). Read as noise on 8 labelled cases; total met
+  claims 354 -> 355. Dev 0.718 -> 0.758. Gates pass: slowest 60.2 s, peak 4.22 GB.
+
 ## 2026-11-10 — Recall fixes for Submission 2: derived C12, per-criterion thresholds for C02/C03
 
 - C12 ("the cited evidence concerns the assessed target itself") is met by the strongest other

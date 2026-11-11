@@ -22,8 +22,9 @@ a proposed TRL. CPU only, offline, catalogue models only.
    opinion read as a probability (one forward pass, no generated text).
 5. **Decision** (pure, deterministic): met criteria cite up to 3 distinct pages, strongest
    first, each with a sentence copied verbatim from that page (sentences that only assert a TRL
-   number are never used); the TRL starts from a prior of 6 and moves only on strongly met level
-   criteria; criteria without enough support are `insufficient evidence` with an explanation.
+   number are never used, and headers, headings and cut-off fragments are tidied away); the TRL
+   starts from a prior set by the kind of product the target is (6, or 7 for maps, services and
+   systems) and moves only on strongly met level criteria; criteria without enough support are `insufficient evidence` with an explanation.
 6. **Never fail**: a time budget is checked before every expensive step; any error or shortage
    of time still returns a contract-valid result built from the evidence gathered so far.
 

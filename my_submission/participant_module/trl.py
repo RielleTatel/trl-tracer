@@ -24,6 +24,23 @@ def criterion_levels(checklist: Mapping[str, Any]) -> dict[str, int]:
     return levels
 
 
+def target_prior(description: str, settings: Mapping[str, Any]) -> int:
+    """The prior for this target: `trl_prior_by_target` rules on the words of its description.
+
+    The kind of product named by the target says a lot about its maturity (a model is usually
+    validated at a site; a map service or a monitoring system is usually in use).
+    """
+    words = set(re.findall(r"[a-z]+", description.lower()))
+    for rule in settings.get("trl_prior_by_target") or []:
+        try:
+            wanted = {str(w).lower() for w in rule.get("any") or []}
+            if not wanted or wanted & words:
+                return min(9, max(1, int(rule["trl"])))
+        except (AttributeError, KeyError, TypeError, ValueError):
+            continue
+    return int(settings["trl_prior"])
+
+
 def predict(met_scores: Mapping[str, float], levels: Mapping[str, int], settings: Mapping[str, Any]) -> tuple[int, str]:
     """`met_scores`: criterion ID -> best support score, for met criteria. Returns (TRL, reason)."""
     prior = int(settings["trl_prior"])

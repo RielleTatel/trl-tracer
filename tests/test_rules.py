@@ -46,3 +46,12 @@ def test_unknown_criterion_falls_back_to_its_description():
 def test_missing_rules_file_falls_back_for_every_criterion(tmp_path, checklist):
     per = rules.for_case(rules.load(tmp_path), checklist, CASE)
     assert all(entry["hypotheses"] and entry["queries"] for entry in per.values())
+
+
+def test_contents_pages_are_page_traps():
+    from participant_module import retrieve
+
+    contents = "iv\nContents\n" + "".join(f"Section {n}{'.' * 40}{n}\n" for n in range(1, 6))
+    body = "The model was calibrated to 16 flood events.\nIt was validated at three streamgages."
+    documents = [{"document_id": "D001", "pages": [contents, body]}]
+    assert retrieve.trap_pages(documents, []) == {("D001", 1)}

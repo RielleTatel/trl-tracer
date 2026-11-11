@@ -27,7 +27,36 @@
     "met_threshold_by_criterion": {
       "APCTT-C02": 0.03,
       "APCTT-C03": 0.03
-    }
+    },
+    "purpose_quote_ok": [
+      "APCTT-C02"
+    ],
+    "trl_prior_by_target": [
+      {
+        "any": [
+          "model",
+          "models",
+          "modeling",
+          "modelling",
+          "simulation",
+          "simulations"
+        ],
+        "trl": 6
+      },
+      {
+        "any": [
+          "map",
+          "maps",
+          "service",
+          "services",
+          "system",
+          "systems",
+          "application",
+          "applications"
+        ],
+        "trl": 7
+      }
+    ]
   },
   "models": [
     {

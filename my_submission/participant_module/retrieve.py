@@ -15,6 +15,8 @@ from collections import Counter
 from collections.abc import Callable, Mapping
 from typing import Any
 
+from participant_module import quotes
+
 DEFAULTS: dict[str, Any] = {
     "bm25_k": 40,  # BM25 top passages per criterion (also the embedding pre-filter)
     "fused_k": 12,  # fused passages per criterion sent to the reranker
@@ -59,13 +61,14 @@ class BM25:
 
 
 def trap_pages(documents: list[Mapping[str, Any]], page_traps: list[str]) -> set[tuple[str, int]]:
-    """Pages whose first lines start with a page-trap heading (e.g. 'References Cited')."""
+    """Pages whose first lines start with a page-trap heading (e.g. 'References Cited'), and contents pages."""
     traps = [t.lower() for t in page_traps]
     found = set()
     for document in documents:
         for number, text in enumerate(document["pages"], start=1):
             lines = [line.strip().lower() for line in text.splitlines() if line.strip()][:12]
-            if any(line.startswith(t) for line in lines for t in traps):
+            leaders = sum(1 for line in text.splitlines() if quotes.dot_leaders(line))
+            if leaders >= 3 or any(line.startswith(t) for line in lines for t in traps):
                 found.add((document["document_id"], number))
     return found
 

@@ -321,3 +321,88 @@ def test_per_criterion_threshold_overrides_the_global_one(checklist):
     assert [i["page"] for i in result["evidence_reference"][c02]] == [2, 6, 3]  # extra pages use the same lower bar
     other = run(checklist, {level_id(checklist, 6): {"candidates": [cand(2, 0.06)]}}, {"met_threshold_by_criterion": {c02: 0.03}})
     assert other["criterion_status"][level_id(checklist, 6)] == "insufficient evidence"
+
+
+# -- tidy quotations ------------------------------------------------------------------------
+
+
+def quote_from(checklist, page: str, text: str | None = None, settings: dict[str, Any] | None = None, cid: str | None = None) -> str:
+    cid = cid or level_id(checklist, 6)
+    ev = {"version": "trl-tracer-evidence-v1",
+          "documents": [{"document_id": "D001", "page_count": 1, "pages": [page]}],
+          "criteria": {cid: {"candidates": [{"document_id": "D001", "page": 1, "text": text or norm(page), "entail": 0.97}]}}}
+    span = decide(META, checklist, settings or {}, ev)["evidence_reference"][cid][0]["supporting_span"]
+    assert span in norm(page)
+    return span
+
+
+BODY = ("The hydraulic model was calibrated to the high-water marks surveyed after the 2011 flood \n"
+        "and the simulated water-surface elevations agreed with them within 0.5 foot at every one. \n")
+
+
+def test_running_header_and_heading_are_not_part_of_the_quotation(checklist):
+    page = "30  Flood-Inundation Maps for the Example River at Sometown, 2018\nModel Calibration\n" + BODY
+    assert quote_from(checklist, page).startswith("The hydraulic model was calibrated")
+
+
+def test_sentence_is_not_cut_at_an_abbreviation(checklist):
+    page = ("The maps were verified against high-water marks surveyed by the U.S. Geological Survey after the "
+            "flood (fig. 4) and agreed within 0.5 foot.\n" + FILLER)
+    cut = "Geological Survey after the flood (fig."  # how the passage was split before
+    span = quote_from(checklist, page, text=cut)
+    assert span.startswith("The maps were verified") and span.endswith("0.5 foot.")
+
+
+def test_complete_sentence_is_preferred_to_one_that_must_be_shortened(checklist):
+    long_sentence = "The model was evaluated " + "and checked again " * 20 + "at every gage."
+    short = "Simulated and observed peak stages agreed within 0.3 foot at all three streamgages."
+    span = quote_from(checklist, long_sentence + " " + short, settings={"span_max_chars": 120})
+    assert span == short
+
+
+def test_purpose_statement_is_quoted_only_when_nothing_else_or_when_allowed(checklist):
+    purpose = "The purpose of this report is to describe the development of the flood-inundation maps."
+    done = "The maps were verified against 12 high-water marks surveyed after the 2011 flood."
+    page = purpose + " " + done
+    cid = level_id(checklist, 6)
+    assert quote_from(checklist, page) == done
+    assert quote_from(checklist, page, settings={"purpose_quote_ok": [cid]}) == purpose
+    assert quote_from(checklist, purpose) == purpose
+
+
+def test_contents_lines_and_reference_entries_are_avoided(checklist):
+    contents = "Abstract.........................................................1 Introduction......................2"
+    reference = "Perry, C.A., Wolock, D.M., and Artman, J.A., 2004, Estimates of flow duration for Kansas streams."
+    done = "The regression equations were verified with data from 14 streamgages not used to develop them."
+    assert quote_from(checklist, contents + " " + reference + " " + done) == done
+
+
+# -- TRL prior from the target description --------------------------------------------------
+
+TARGET_RULES = {"trl_prior_by_target": [{"any": ["model", "models"], "trl": 6}, {"any": ["map", "service"], "trl": 7}]}
+
+
+def trl_for_target(checklist, description: str, settings: dict[str, Any], criteria: dict[str, Any] | None = None) -> int:
+    meta = {**META, "assessment_target": {**TARGET, "description": description}}
+    result = decide(meta, checklist, settings, evidence(criteria or {}))
+    assert contract_issues(result, {**case_for_validator(checklist), "assessment_target": meta["assessment_target"]}, checklist) == []
+    return result["predicted_trl"]
+
+
+def test_target_description_sets_the_trl_prior(checklist):
+    assert trl_for_target(checklist, "Saint Paul inundation-map service", TARGET_RULES) == 7
+    assert trl_for_target(checklist, "Red River PRMS water-budget model", TARGET_RULES) == 6
+    assert trl_for_target(checklist, "Flood map from a HEC-RAS model", TARGET_RULES) == 6  # first rule wins
+    assert trl_for_target(checklist, "Shoreline-change workflow", TARGET_RULES) == 6  # no rule: trl_prior
+    assert trl_for_target(checklist, "Remapping of models", TARGET_RULES) == 6  # whole words only
+
+
+def test_target_prior_is_off_by_default_and_ignores_malformed_rules(checklist):
+    assert trl_for_target(checklist, "Saint Paul inundation-map service", {}) == 6
+    broken = {"trl_prior_by_target": ["x", {"any": ["service"]}, {"any": ["service"], "trl": "high"}, {"any": ["service"], "trl": 7}]}
+    assert trl_for_target(checklist, "Saint Paul inundation-map service", broken) == 7
+
+
+def test_strong_evidence_above_the_band_still_overrides_the_target_prior(checklist):
+    criteria = {level_id(checklist, 9): {"candidates": [cand(2, 0.99)]}}
+    assert trl_for_target(checklist, "Storm-tide monitoring service", TARGET_RULES, criteria) == 9
