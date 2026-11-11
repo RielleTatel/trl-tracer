@@ -4,10 +4,11 @@ Choices and why (thresholds, models, TRL rule). Newest first.
 
 ## 2026-11-11 — Final submission: trl-tracer 1.1.0 (the team's single planned upload)
 
-- Zip: `submissions/final-1.1.0/adzu_blue_eagles_submission.zip` (not in git), team
-  `adzu_blue_eagles` (the participant's registered team name, to be confirmed), zip sha256
-  `2d4b87252fc27c6279ffcc8e82f38d5bf7680ea100488e88ce57276d1f255035` (the earlier `team: adzu` zip is
-  in `submissions/superseded/`),
+- Zip: `submissions/final-1.1.0/zamboanga_blue_eagles_submission.zip` (not in git), team
+  `zamboanga_blue_eagles` (the participant's team, Zamboanga Blue Eagles; the schema allows no
+  spaces), zip sha256
+  `62b0e9ea8194bb1c8fb5415052117a2854a75a357e552baa66c5e769387f9d62` (the earlier `team: adzu` and
+  `team: adzu_blue_eagles` zips are in `submissions/superseded/`),
   package sha256 `d9688049b5bc6a432a54db362b7fa5cfd4aa3e9dd3ff8174ceac950ef131cdf7` (equals the kit
   server's `verified_package_sha256`).
 - Intake check: `VALID_WITH_REVIEW` (only the public-domain USGS data source). Kit server: example
