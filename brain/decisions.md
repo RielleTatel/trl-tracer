@@ -2,6 +2,19 @@
 
 Choices and why (thresholds, models, TRL rule). Newest first.
 
+## 2026-11-11 — Final submission: trl-tracer 1.1.0 (the team's single planned upload)
+
+- Zip: `submissions/final-1.1.0/adzu_submission.zip` (not in git), 31.1 KB,
+  zip sha256 `4683dffb9bd765008d2aa387f173e5bd1559109a733debb664fcb8c54aa789ca`,
+  package sha256 `d9688049b5bc6a432a54db362b7fa5cfd4aa3e9dd3ff8174ceac950ef131cdf7` (equals the kit
+  server's `verified_package_sha256`).
+- Intake check: `VALID_WITH_REVIEW` (only the public-domain USGS data source). Kit server: example
+  and smoke cases completed, no output issues (USGS-SDG-040 now TRL 7). Slow module tests 8/8; fast
+  tests 45/45.
+- Scores: tuning A 0.843, B 0.663, dev 0.758; held-out A 0.793; gates pass (slowest 60.2 s, peak
+  4.2 GB) on the development Mac.
+- The participant plans a single upload; the second slot stays in reserve in case the intake refuses it.
+
 ## 2026-11-11 — TRL prior from the target description; tidy quotations (Submission 2 candidate)
 
 - Audit finding: the TRL rule predicted 6 for all 99 public cases. The words of the assessment

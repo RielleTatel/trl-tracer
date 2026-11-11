@@ -4,7 +4,7 @@
   "package_id": "trl-tracer",
   "package_version": "1.1.0",
   "base_id": "apctt-base-9e7fe1324bb6",
-  "declared_package_sha256": null,
+  "declared_package_sha256": "d9688049b5bc6a432a54db362b7fa5cfd4aa3e9dd3ff8174ceac950ef131cdf7",
   "license": "MIT",
   "compute": {
     "device": "cpu"

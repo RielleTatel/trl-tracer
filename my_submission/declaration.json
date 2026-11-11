@@ -2,8 +2,8 @@
   "declaration_version": "apctt-declaration-example-v1",
   "team": "adzu",
   "package_id": "trl-tracer",
-  "package_version": "1.0.0",
-  "declared_package_sha256": "57043ca7712fa838280b58d5230c48103ae6cf7b483ff30f540b1c6dc857a143",
+  "package_version": "1.1.0",
+  "declared_package_sha256": "d9688049b5bc6a432a54db362b7fa5cfd4aa3e9dd3ff8174ceac950ef131cdf7",
   "team_training": "no_team_training",
   "training": null,
   "data_sources": [
